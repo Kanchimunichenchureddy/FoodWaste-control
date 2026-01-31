@@ -1,0 +1,700 @@
+# FoodWaste Platform - Module-by-Module Implementation Plan
+
+> **Strategy**: Build and complete one module at a time. Each module must be fully functional and tested before moving to the next.
+
+---
+
+## 📊 Implementation Overview
+
+```mermaid
+graph TD
+    A[Module 1: Authentication] --> B[Module 2: Pantry Management]
+    A --> C[Module 3: Waste Logging]
+    B --> D[Module 4: Reports & Analytics]
+    C --> D
+    A --> E[Module 5: Donation Marketplace]
+    B --> E
+    D --> F[Module 6: Supplier Management]
+    A --> G[Module 7: Team Management]
+    D --> H[Module 8: Sector Dashboard
+    
+    B --> H
+    C --> H
+    E --> I[Module 9: Mobile PWA]
+    H --> I
+```
+
+---
+
+## 🎯 Module Implementation Order
+
+| # | Module | Status | Dependencies | Est. Time |
+|---|--------|--------|--------------|-----------|
+| 1 | Authentication & Authorization | ✅ **COMPLETE** | None | - |
+| 2 | Pantry Management | 📋 Ready | Module 1 | 2-3 days |
+| 3 | Waste Logging | 📋 Ready | Module 1 | 2-3 days |
+| 4 | Reports & Analytics | 📋 Waiting | Modules 2, 3 | 3-4 days |
+| 5 | Donation Marketplace | 📋 Ready | Module 1 | 2-3 days |
+| 6 | Supplier Management | 📋 Waiting | Module 2 | 1-2 days |
+| 7 | Team Management | 📋 Ready | Module 1 | 1-2 days |
+| 8 | Sector-Specific Dashboards | 📋 Waiting | Modules 2, 3, 4 | 3-4 days |
+| 9 | Mobile PWA | 📋 Waiting | All modules | 2-3 days |
+
+---
+
+## ✅ Module 1: Authentication & Authorization
+
+### Status: **COMPLETE** ✅
+
+### What's Built
+- [x] User signup (email/password)
+- [x] Two-step signup flow (Household vs Business)
+- [x] User login with session management
+- [x] Organization creation during signup
+- [x] Multi-organization support
+- [x] Organization switcher
+- [x] Role-based access control (Owner, Admin, Manager, Staff, Viewer)
+- [x] Protected routes
+- [x] Auto-redirect after login
+- [x] Sign out functionality
+
+### Files Created
+- [Login.jsx](file:///Users/teja.kanchi/Desktop/Real%20_World_Projects/foodWaste/frontend-react/src/components/pages/Login.jsx)
+- [Signup.jsx](file:///Users/teja.kanchi/Desktop/Real%20_World_Projects/foodWaste/frontend-react/src/components/pages/Signup.jsx)
+- [AuthContext.jsx](file:///Users/teja.kanchi/Desktop/Real%20_World_Projects/foodWaste/frontend-react/src/contexts/AuthContext.jsx)
+- [OrganizationSwitcher.jsx](file:///Users/teja.kanchi/Desktop/Real%20_World_Projects/foodWaste/frontend-react/src/components/layout/OrganizationSwitcher.jsx)
+
+### Success Criteria
+- ✅ Users can sign up as household or business
+- ✅ Users can log in and log out
+- ✅ Sessions persist across page refreshes
+- ✅ Users can switch between organizations
+- ✅ Role-based menu items work correctly
+
+---
+
+## 📦 Module 2: Pantry Management
+
+### Status: **READY TO BUILD** 📋
+
+### What to Build
+
+#### 2.1 Pantry List View
+**Features:**
+- Display all pantry items in a grid/list
+- Filter by category (Produce, Dairy, Meat, Grains, etc.)
+- Search by item name
+- Sort by expiry date, name, quantity
+- Color-coded expiry warnings (red: expired, orange: expiring soon, green: fresh)
+- Pagination for large inventories
+
+#### 2.2 Add Pantry Item
+**Features:**
+- Modal/form to add new items
+- Fields:
+  - Item name (text input + autocomplete)
+  - Category (dropdown)
+  - Quantity + Unit (number + select)
+  - Expiry date (date picker)
+  - Batch number (optional - for businesses)
+  - Supplier (optional - dropdown from suppliers)
+  - Location (text - e.g., "Main Fridge", "Dry Storage")
+  - Purchase price (optional)
+  - Notes (textarea)
+- Voice input for item name (use Web Speech API)
+- Photo upload for item (optional)
+- Barcode scanner integration (future)
+
+#### 2.3 Edit/Update Item
+**Features:**
+- Click item to open edit modal
+- Update quantity (increase/decrease)
+- Update expiry date
+- Move location
+- Mark as consumed/used
+
+#### 2.4 Delete Item
+**Features:**
+- Swipe to delete (mobile)
+- Confirmation dialog
+- Soft delete with option to log as waste
+
+#### 2.5 Bulk Actions
+**Features:**
+- Select multiple items
+- Bulk delete
+- Bulk category change
+- Bulk location change
+- Export selected items to CSV
+
+### Database Tables Used
+- `pantry_items` (main table)
+- `suppliers` (for supplier dropdown)
+
+### Files to Create/Modify
+```
+src/components/pages/
+  └── Pantry.jsx (replace placeholder)
+src/components/pantry/
+  ├── PantryList.jsx (grid/list display)
+  ├── PantryItem.jsx (single item card)
+  ├── AddItemModal.jsx (add item form)
+  ├── EditItemModal.jsx (edit item form)
+  ├── PantryFilters.jsx (search, filter, sort)
+  └── VoiceInput.jsx (voice recognition component)
+```
+
+### Success Criteria
+- [ ] Can add items with all required fields
+- [ ] Can view all items with proper filtering
+- [ ] Can edit existing items
+- [ ] Can delete items with confirmation
+- [ ] Search works in real-time
+- [ ] Voice input works for item names
+- [ ] Expiry warnings display correctly
+- [ ] (Business accounts) Can link items to suppliers
+- [ ] (Business accounts) Can specify batch numbers and locations
+
+### Testing Checklist
+- [ ] Add 10+ items across different categories
+- [ ] Filter by each category
+- [ ] Search for specific items
+- [ ] Sort by expiry date (ascending/descending)
+- [ ] Edit an item and verify changes
+- [ ] Delete an item and verify removal
+- [ ] Test voice input on Chrome/Safari
+- [ ] Test on mobile (responsive)
+- [ ] Test with household account
+- [ ] Test with business account
+
+---
+
+## 📝 Module 3: Waste Logging
+
+### Status: **READY TO BUILD** 📋
+
+### What to Build
+
+#### 3.1 Log Waste Entry
+**Features:**
+- Quick log form (minimal fields)
+- Detailed log form (all fields)
+- Fields:
+  - Item name (text or select from pantry)
+  - Category
+  - Quantity wasted + Unit
+  - Waste reason (dropdown: Expired, Spoiled, Over-preparation, Customer leftover, Quality issue, Other)
+  - Estimated cost
+  - Location (where wasted)
+  - Date/time of waste
+  - Notes
+  - Photo upload (optional)
+- Auto-calculate carbon footprint based on weight
+
+#### 3.2 Waste Log Timeline
+**Features:**
+- Display all waste entries in chronological order
+- Group by date (Today, Yesterday, This Week, etc.)
+- Show waste reason icons
+- Display cost and carbon impact
+- Filter by date range
+- Filter by reason
+- Filter by category
+
+#### 3.3 Waste Summary Stats
+**Features:**
+- Total waste this month (kg)
+- Total cost lost
+- Carbon footprint (kg CO2)
+- Most wasted category
+- Most common waste reason
+- Trend graph (waste over time)
+
+#### 3.4 Quick Actions
+**Features:**
+- "Waste from Pantry" - select expired pantry item and log as waste (auto-fill details)
+- "Mark as Donated" instead of wasted
+- Export waste log to CSV/PDF
+
+### Database Tables Used
+- `waste_logs` (main table)
+- `pantry_items` (for linking wasted pantry items)
+
+### Files to Create/Modify
+```
+src/components/pages/
+  └── WasteLogs.jsx (replace placeholder)
+src/components/waste/
+  ├── LogWasteModal.jsx (waste entry form)
+  ├── WasteTimeline.jsx (chronological list)
+  ├── WasteStats.jsx (summary cards)
+  ├── WasteFilters.jsx (date, reason, category filters)
+  └── WasteItem.jsx (single waste entry card)
+```
+
+### Success Criteria
+- [ ] Can log waste with all required fields
+- [ ] Can log waste directly from expired pantry items
+- [ ] Timeline displays all waste entries
+- [ ] Can filter by date range
+- [ ] Can filter by waste reason
+- [ ] Summary stats calculate correctly
+- [ ] Cost and carbon footprint display properly
+- [ ] Can export waste log to CSV
+
+### Testing Checklist
+- [ ] Log 5+ waste entries with different reasons
+- [ ] Log waste from an expired pantry item
+- [ ] Filter waste log by "Expired" reason
+- [ ] Filter waste log by last 7 days
+- [ ] Verify total cost calculation
+- [ ] Verify carbon footprint calculation
+- [ ] Export waste log and verify CSV format
+- [ ] Test on household account
+- [ ] Test on business account (restaurant/grocery)
+
+---
+
+## 📊 Module 4: Reports & Analytics
+
+### Status: **WAITING** (Needs Modules 2, 3)
+
+### What to Build
+
+#### 4.1 Overview Dashboard
+**Features:**
+- Key metrics cards (money saved, waste reduced, items tracked, CO2 saved)
+- Trend charts (waste over time, pantry size over time)
+- Expiring soon widget
+- Recent activity feed
+
+#### 4.2 Waste Analytics
+**Features:**
+- Waste by category (pie chart)
+- Waste by reason (bar chart)
+- Waste trends (line chart - daily/weekly/monthly)
+- Top 10 most wasted items
+- Waste by location (for businesses)
+- Waste by shift/time of day (for restaurants)
+
+#### 4.3 Financial Reports
+**Features:**
+- Money saved vs money wasted
+- Cost per category
+- ROI from waste reduction
+- Inventory value over time
+- Average waste per day/week/month
+
+#### 4.4 Sustainability Reports
+**Features:**
+- Carbon footprint breakdown
+- Comparison to industry benchmarks
+- Meals saved (food donated)
+- Impact score
+
+#### 4.5 Custom Reports
+**Features:**
+- Date range selector
+- Metric selector (choose what to include)
+- Export to PDF with charts
+- Export to CSV (raw data)
+- Schedule automated reports (email)
+
+### Database Tables Used
+- `waste_logs`
+- `pantry_items`
+- `donations`
+- `analytics_snapshots`
+
+### Files to Create/Modify
+```
+src/components/pages/
+  └── Reports.jsx (replace placeholder)
+src/components/reports/
+  ├── OverviewTab.jsx
+  ├── WasteAnalyticsTab.jsx
+  ├── FinancialTab.jsx
+  ├── SustainabilityTab.jsx
+  ├── CustomReportBuilder.jsx
+  └── charts/
+      ├── PieChart.jsx
+      ├── BarChart.jsx
+      ├── LineChart.jsx
+      └── TrendChart.jsx
+```
+
+### Success Criteria
+- [ ] All charts render correctly with real data
+- [ ] Date range filters work
+- [ ] Export to PDF includes all charts
+- [ ] Export to CSV has correct data
+- [ ] Metrics calculate accurately
+- [ ] Charts update when filters change
+- [ ] Sector-specific KPIs display for businesses
+
+---
+
+## 🤝 Module 5: Donation Marketplace
+
+### Status: **READY TO BUILD** 📋
+
+### What to Build
+
+#### 5.1 Post Donation (Donors)
+**Features:**
+- Create donation listing
+- Fields:
+  - Food item(s) description
+  - Quantity
+  - Category
+  - Expiry date
+  - Pickup location (address)
+  - Available pickup times
+  - Special instructions
+  - Photos
+- Mark as available/claimed/completed
+
+#### 5.2 Browse Donations (Recipients)
+**Features:**
+- List all available donations
+- Filter by:
+  - Location (distance from me)
+  - Category
+  - Quantity
+  - Pickup time
+- Search by item name/description
+- Map view (show nearby donations)
+
+#### 5.3 Claim Donation
+**Features:**
+- Claim button
+- Confirm pickup time
+- Contact donor (phone/email)
+- Mark as picked up
+- Leave feedback/rating
+
+#### 5.4 Donation History
+**Features:**
+- My donations (posted)
+- My claims (received)
+- Track status (pending, claimed, completed)
+- Impact metrics (meals provided, items donated)
+
+### Database Tables Used
+- `donations`
+- `organizations`
+
+### Files to Create/Modify
+```
+src/components/pages/
+  └── Donations.jsx (replace placeholder)
+src/components/donations/
+  ├── DonationList.jsx
+  ├── DonationCard.jsx
+  ├── PostDonationModal.jsx
+  ├── ClaimDonationModal.jsx
+  ├── DonationFilters.jsx
+  └── DonationMap.jsx (optional)
+```
+
+### Success Criteria
+- [ ] Can post a donation with all details
+- [ ] Can browse available donations
+- [ ] Can claim a donation
+- [ ] Claimed donations show "Claimed" status
+- [ ] Can filter by category and location
+- [ ] Can view donation history
+- [ ] Impact metrics display correctly
+
+---
+
+## 🏢 Module 6: Supplier Management
+
+### Status: **WAITING** (Needs Module 2)
+
+### What to Build
+
+#### 6.1 Supplier List
+**Features:**
+- Display all suppliers
+- Supplier details (name, contact, category, quality rating)
+- Search suppliers
+- Filter by category
+
+#### 6.2 Add/Edit Supplier
+**Features:**
+- Add new supplier form
+- Fields: name, contact person, phone, email, category, address, notes
+- Quality rating (1-5 stars)
+- Performance notes
+
+#### 6.3 Supplier Analytics
+**Features:**
+- Waste correlation (items from this supplier that became waste)
+- Quality score over time
+- Average shelf life of items from supplier
+- Cost analysis
+
+#### 6.4 Link to Pantry
+**Features:**
+- When adding pantry item, select supplier
+- View all items from a specific supplier
+- Track batch numbers and expiry patterns
+
+### Database Tables Used
+- `suppliers`
+- `pantry_items` (linked via supplier_id)
+
+### Success Criteria
+- [ ] Can add/edit suppliers
+- [ ] Can link pantry items to suppliers
+- [ ] Waste correlation displays correctly
+- [ ] Quality ratings work
+- [ ] Can filter pantry by supplier
+
+---
+
+## 👥 Module 7: Team Management
+
+### Status: **READY TO BUILD** 📋
+
+### What to Build
+
+#### 7.1 Team Members List
+**Features:**
+- Display all organization members
+- Show role (Owner, Admin, Manager, Staff, Viewer)
+- Show status (Active, Pending invitation)
+- Show last active date
+
+#### 7.2 Invite Members
+**Features:**
+- Send invitation by email
+- Assign role during invitation
+- Invitation link expiry (7 days)
+- Resend invitation
+
+#### 7.3 Manage Roles
+**Features:**
+- Change member role (dropdown)
+- Remove member (with confirmation)
+- Role permissions matrix:
+  - **Owner**: All permissions, can delete org
+  - **Admin**: All except delete org
+  - **Manager**: Can manage inventory, waste, reports
+  - **Staff**: Can add/edit items, log waste
+  - **Viewer**: Read-only access
+
+#### 7.4 Activity Log
+**Features:**
+- Who added what item
+- Who logged what waste
+- Who invited whom
+- Role changes history
+
+### Database Tables Used
+- `organization_members`
+- `organizations`
+
+### Files to Create/Modify
+```
+src/components/pages/
+  └── TeamManagement.jsx (replace placeholder)
+src/components/team/
+  ├── MemberList.jsx
+  ├── InviteMemberModal.jsx
+  ├── MemberCard.jsx
+  ├── RolePermissionsTable.jsx
+  └── ActivityLog.jsx
+```
+
+### Success Criteria
+- [ ] Can invite members by email
+- [ ] Can assign roles
+- [ ] Can change roles
+- [ ] Can remove members
+- [ ] Role-based permissions work correctly
+- [ ] Activity log shows recent actions
+
+---
+
+## 🍽️ Module 8: Sector-Specific Dashboards
+
+### Status: **WAITING** (Needs Modules 2, 3, 4)
+
+### What to Build
+
+#### 8.1 Restaurant Dashboard
+**Features:**
+- Kitchen waste by shift
+- Menu item waste correlation
+- Portion control insights
+- Peak waste times
+- Food cost percentage
+- Prep vs actual waste
+
+#### 8.2 Grocery Dashboard
+**Features:**
+- FIFO tracking status
+- Items near expiry (markdown candidates)
+- Category-wise waste
+- Seasonal trends
+- Supplier performance
+- Donation opportunities
+
+#### 8.3 Hotel Dashboard
+**Features:**
+- Buffet waste tracking
+- Event catering waste
+- Room service waste
+- Guest feedback correlation
+- Occupancy vs waste correlation
+- Department-wise breakdown
+
+#### 8.4 Donation Center Dashboard
+**Features:**
+- Intake log
+- Distribution tracking
+- Beneficiaries served
+- Meals provided
+- Donor leaderboard
+- Impact metrics
+
+### Files to Modify
+```
+src/components/pages/sectors/
+  ├── RestaurantDashboard.jsx (enhance)
+  ├── GroceryDashboard.jsx (enhance)
+  ├── HotelDashboard.jsx (enhance)
+  └── DonationDashboard.jsx (enhance)
+```
+
+### Success Criteria
+- [ ] Each sector dashboard shows relevant KPIs
+- [ ] Charts update with real data
+- [ ] Sector-specific features work
+- [ ] Insights are actionable and valuable
+
+---
+
+## 📱 Module 9: Mobile PWA
+
+### Status: **WAITING** (Needs All Modules)
+
+### What to Build
+
+#### 9.1 PWA Basics
+**Features:**
+- Manifest.json configuration
+- Service worker for offline mode
+- Install prompt
+- App icons (iOS, Android, desktop)
+
+#### 9.2 Mobile Optimizations
+**Features:**
+- Touch-friendly UI
+- Swipe gestures
+- Bottom navigation
+- Camera integration for photos
+- Barcode scanner (for pantry items)
+
+#### 9.3 Push Notifications
+**Features:**
+- Expiry alerts (items expiring in 2 days)
+- Waste log reminders
+- Team member invitations
+- Donation claims
+- Report scheduled notifications
+
+#### 9.4 Offline Mode
+**Features:**
+- Cache pantry data
+- Queue waste logs when offline
+- Sync when back online
+- Offline-first architecture
+
+### Files to Create
+```
+public/
+  ├── manifest.json
+  ├── sw.js (service worker)
+  └── icons/ (various sizes)
+src/utils/
+  ├── notifications.js
+  └── serviceWorker.js
+```
+
+### Success Criteria
+- [ ] App installs on mobile devices
+- [ ] Works offline (basic features)
+- [ ] Push notifications work
+- [ ] Camera access works
+- [ ] Responsive on all screen sizes
+
+---
+
+## 🚀 Recommended Implementation Order
+
+**Phase 1: Core Features** (Start Here)
+1. ✅ Module 1: Authentication (DONE)
+2. ⏭️ **Module 2: Pantry Management** ← **START HERE**
+3. ⏭️ Module 3: Waste Logging
+
+**Phase 2: Business Intelligence**
+4. Module 4: Reports & Analytics
+
+**Phase 3: Collaboration**
+5. Module 5: Donation Marketplace
+6. Module 7: Team Management
+
+**Phase 4: Advanced Features**
+7. Module 6: Supplier Management
+8. Module 8: Sector Dashboards
+
+**Phase 5: Mobile**
+9. Module 9: Mobile PWA
+
+---
+
+## 📝 Development Process for Each Module
+
+### Step 1: Plan (1 day)
+- Review module requirements
+- Design UI mockups
+- Define API calls needed
+- Create component structure
+- Write test cases
+
+### Step 2: Build (2-3 days)
+- Create components
+- Implement Supabase integration
+- Add error handling
+- Style with Tailwind CSS
+- Add animations
+
+### Step 3: Test (1 day)
+- Manual testing
+- Test all user flows
+- Test edge cases
+- Cross-browser testing
+- Mobile testing
+
+### Step 4: Document (0.5 day)
+- Update README
+- Create user guide
+- Document API usage
+- Add code comments
+
+### Step 5: Review & Polish (0.5 day)
+- Code review
+- Performance optimization
+- Accessibility check
+- Final testing
+
+---
+
+## ✅ Ready to Start?
+
+**Next Step: Module 2 - Pantry Management**
+
+Shall I create a detailed implementation plan for Module 2 (Pantry Management) and start building it?

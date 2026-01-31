@@ -1,0 +1,1222 @@
+[dotenv@17.2.3] injecting env (6) from .env -- tip: ⚙️  override existing env vars with { override: true }
+[dotenv@17.2.3] injecting env (0) from .env -- tip: 🔐 prevent committing .env to code: https://dotenvx.com/precommit
+Server running on port 5001
+📝 Register Request Body: {
+  email: 'kiran@gmail.com',
+  password: 'teja12345',
+  full_name: 'm.kiran'
+}
+⚠️ No organization name provided. User will be created without an organization.
+👤 Creating User: kiran@gmail.com
+✅ User Created ID: 3
+📝 Register Request Body: {
+  email: 'raju@gmail.com',
+  password: 'teja12345',
+  name: "A raju's Home",
+  sector_type: 'Household',
+  city: 'Local',
+  organization_name: "A raju's Home",
+  full_name: 'A raju'
+}
+🏢 Creating Organization: A raju's Home
+✅ Organization Created ID: 1
+👤 Creating User: raju@gmail.com
+✅ User Created ID: 4
+📝 Register Request Body: {
+  email: 'verifier_home@example.com',
+  password: 'Password123',
+  name: "Verifier Home's Home",
+  sector_type: 'Household',
+  city: 'Local',
+  organization_name: "Verifier Home's Home",
+  full_name: 'Verifier Home'
+}
+🏢 Creating Organization: Verifier Home's Home
+✅ Organization Created ID: 2
+👤 Creating User: verifier_home@example.com
+✅ User Created ID: 5
+📝 Register Request Body: {
+  email: 'verifier_pro@example.com',
+  password: 'Password123',
+  name: 'Pro Kitchen',
+  sector_type: 'Restaurant',
+  city: 'Tech City',
+  organization_name: 'Pro Kitchen',
+  full_name: 'Verifier Pro'
+}
+🏢 Creating Organization: Pro Kitchen
+✅ Organization Created ID: 3
+👤 Creating User: verifier_pro@example.com
+✅ User Created ID: 6
+Error: Unknown column 'user_id' in 'field list'
+    at PromisePool.query (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/mysql2/lib/promise/pool.js:36:22)
+    at addItem (/Users/teja.kanchi/Desktop/hackthon/backend/controllers/pantryController.js:32:37)
+    at Layer.handleRequest (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/layer.js:152:17)
+    at next (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/route.js:157:13)
+    at Route.dispatch (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/route.js:117:3)
+    at handle (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:435:11)
+    at Layer.handleRequest (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/layer.js:152:17)
+    at /Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:295:15
+    at processParams (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:582:12)
+    at next (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:291:5) {
+  code: 'ER_BAD_FIELD_ERROR',
+  errno: 1054,
+  sql: 'INSERT INTO pantry_items \n' +
+    '            (organization_id, user_id, name, category, quantity, unit, expiry_date, location, batch_number, purchase_price, notes, supplier_id) \n' +
+    "            VALUES (2, 5, 'Consectetur', 'Other', 1, 'pcs', '2026-02-07', NULL, NULL, 49, 'Imported from receipt scan', NULL)",
+  sqlState: '42S22',
+  sqlMessage: "Unknown column 'user_id' in 'field list'"
+}
+Error: Unknown column 'user_id' in 'field list'
+    at PromisePool.query (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/mysql2/lib/promise/pool.js:36:22)
+    at addItem (/Users/teja.kanchi/Desktop/hackthon/backend/controllers/pantryController.js:32:37)
+    at Layer.handleRequest (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/layer.js:152:17)
+    at next (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/route.js:157:13)
+    at Route.dispatch (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/route.js:117:3)
+    at handle (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:435:11)
+    at Layer.handleRequest (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/layer.js:152:17)
+    at /Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:295:15
+    at processParams (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:582:12)
+    at next (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:291:5) {
+  code: 'ER_BAD_FIELD_ERROR',
+  errno: 1054,
+  sql: 'INSERT INTO pantry_items \n' +
+    '            (organization_id, user_id, name, category, quantity, unit, expiry_date, location, batch_number, purchase_price, notes, supplier_id) \n' +
+    "            VALUES (2, 5, 'Check number', 'Other', 1, 'pcs', '2026-02-07', NULL, NULL, 577, 'Imported from receipt scan', NULL)",
+  sqlState: '42S22',
+  sqlMessage: "Unknown column 'user_id' in 'field list'"
+}
+Error: Unknown column 'user_id' in 'field list'
+    at PromisePool.query (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/mysql2/lib/promise/pool.js:36:22)
+    at addItem (/Users/teja.kanchi/Desktop/hackthon/backend/controllers/pantryController.js:32:37)
+    at Layer.handleRequest (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/layer.js:152:17)
+    at next (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/route.js:157:13)
+    at Route.dispatch (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/route.js:117:3)
+    at handle (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:435:11)
+    at Layer.handleRequest (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/layer.js:152:17)
+    at /Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:295:15
+    at processParams (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:582:12)
+    at next (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:291:5) {
+  code: 'ER_BAD_FIELD_ERROR',
+  errno: 1054,
+  sql: 'INSERT INTO pantry_items \n' +
+    '            (organization_id, user_id, name, category, quantity, unit, expiry_date, location, batch_number, purchase_price, notes, supplier_id) \n' +
+    "            VALUES (2, 5, 'Sunt in culp', 'Other', 1, 'pcs', '2026-02-07', NULL, NULL, 34.7, 'Imported from receipt scan', NULL)",
+  sqlState: '42S22',
+  sqlMessage: "Unknown column 'user_id' in 'field list'"
+}
+Error: Unknown column 'user_id' in 'field list'
+    at PromisePool.query (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/mysql2/lib/promise/pool.js:36:22)
+    at addItem (/Users/teja.kanchi/Desktop/hackthon/backend/controllers/pantryController.js:32:37)
+    at Layer.handleRequest (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/layer.js:152:17)
+    at next (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/route.js:157:13)
+    at Route.dispatch (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/route.js:117:3)
+    at handle (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:435:11)
+    at Layer.handleRequest (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/layer.js:152:17)
+    at /Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:295:15
+    at processParams (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:582:12)
+    at next (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:291:5) {
+  code: 'ER_BAD_FIELD_ERROR',
+  errno: 1054,
+  sql: 'INSERT INTO pantry_items \n' +
+    '            (organization_id, user_id, name, category, quantity, unit, expiry_date, location, batch_number, purchase_price, notes, supplier_id) \n' +
+    "            VALUES (2, 5, 'Dolore', 'Other', 1, 'pcs', '2026-02-07', NULL, NULL, 809, 'Imported from receipt scan', NULL)",
+  sqlState: '42S22',
+  sqlMessage: "Unknown column 'user_id' in 'field list'"
+}
+Error: Unknown column 'user_id' in 'field list'
+    at PromisePool.query (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/mysql2/lib/promise/pool.js:36:22)
+    at addItem (/Users/teja.kanchi/Desktop/hackthon/backend/controllers/pantryController.js:32:37)
+    at Layer.handleRequest (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/layer.js:152:17)
+    at next (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/route.js:157:13)
+    at Route.dispatch (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/route.js:117:3)
+    at handle (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:435:11)
+    at Layer.handleRequest (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/layer.js:152:17)
+    at /Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:295:15
+    at processParams (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:582:12)
+    at next (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:291:5) {
+  code: 'ER_BAD_FIELD_ERROR',
+  errno: 1054,
+  sql: 'INSERT INTO pantry_items \n' +
+    '            (organization_id, user_id, name, category, quantity, unit, expiry_date, location, batch_number, purchase_price, notes, supplier_id) \n' +
+    "            VALUES (2, 5, 'Duis aute', 'Other', 1, 'pcs', '2026-02-07', NULL, NULL, 44.03, 'Imported from receipt scan', NULL)",
+  sqlState: '42S22',
+  sqlMessage: "Unknown column 'user_id' in 'field list'"
+}
+Error: Unknown column 'user_id' in 'field list'
+    at PromisePool.query (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/mysql2/lib/promise/pool.js:36:22)
+    at addItem (/Users/teja.kanchi/Desktop/hackthon/backend/controllers/pantryController.js:32:37)
+    at Layer.handleRequest (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/layer.js:152:17)
+    at next (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/route.js:157:13)
+    at Route.dispatch (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/route.js:117:3)
+    at handle (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:435:11)
+    at Layer.handleRequest (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/layer.js:152:17)
+    at /Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:295:15
+    at processParams (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:582:12)
+    at next (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:291:5) {
+  code: 'ER_BAD_FIELD_ERROR',
+  errno: 1054,
+  sql: 'INSERT INTO pantry_items \n' +
+    '            (organization_id, user_id, name, category, quantity, unit, expiry_date, location, batch_number, purchase_price, notes, supplier_id) \n' +
+    "            VALUES (2, 5, 'Sint', 'Other', 1, 'pcs', '2026-02-07', NULL, NULL, 798, 'Imported from receipt scan', NULL)",
+  sqlState: '42S22',
+  sqlMessage: "Unknown column 'user_id' in 'field list'"
+}
+Error: Unknown column 'user_id' in 'field list'
+    at PromisePool.query (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/mysql2/lib/promise/pool.js:36:22)
+    at addItem (/Users/teja.kanchi/Desktop/hackthon/backend/controllers/pantryController.js:32:37)
+    at Layer.handleRequest (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/layer.js:152:17)
+    at next (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/route.js:157:13)
+    at Route.dispatch (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/route.js:117:3)
+    at handle (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:435:11)
+    at Layer.handleRequest (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/layer.js:152:17)
+    at /Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:295:15
+    at processParams (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:582:12)
+    at next (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:291:5) {
+  code: 'ER_BAD_FIELD_ERROR',
+  errno: 1054,
+  sql: 'INSERT INTO pantry_items \n' +
+    '            (organization_id, user_id, name, category, quantity, unit, expiry_date, location, batch_number, purchase_price, notes, supplier_id) \n' +
+    "            VALUES (2, 5, 'Minim veniam', 'Other', 1, 'pcs', '2026-02-07', NULL, NULL, 20.4, 'Imported from receipt scan', NULL)",
+  sqlState: '42S22',
+  sqlMessage: "Unknown column 'user_id' in 'field list'"
+}
+Error: Unknown column 'user_id' in 'field list'
+    at PromisePool.query (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/mysql2/lib/promise/pool.js:36:22)
+    at addItem (/Users/teja.kanchi/Desktop/hackthon/backend/controllers/pantryController.js:32:37)
+    at Layer.handleRequest (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/layer.js:152:17)
+    at next (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/route.js:157:13)
+    at Route.dispatch (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/route.js:117:3)
+    at handle (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:435:11)
+    at Layer.handleRequest (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/layer.js:152:17)
+    at /Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:295:15
+    at processParams (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:582:12)
+    at next (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:291:5) {
+  code: 'ER_BAD_FIELD_ERROR',
+  errno: 1054,
+  sql: 'INSERT INTO pantry_items \n' +
+    '            (organization_id, user_id, name, category, quantity, unit, expiry_date, location, batch_number, purchase_price, notes, supplier_id) \n' +
+    "            VALUES (2, 5, 'Mollit', 'Other', 1, 'pcs', '2026-02-07', NULL, NULL, 558, 'Imported from receipt scan', NULL)",
+  sqlState: '42S22',
+  sqlMessage: "Unknown column 'user_id' in 'field list'"
+}
+Error: Unknown column 'user_id' in 'field list'
+    at PromisePool.query (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/mysql2/lib/promise/pool.js:36:22)
+    at addItem (/Users/teja.kanchi/Desktop/hackthon/backend/controllers/pantryController.js:32:37)
+    at Layer.handleRequest (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/layer.js:152:17)
+    at next (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/route.js:157:13)
+    at Route.dispatch (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/route.js:117:3)
+    at handle (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:435:11)
+    at Layer.handleRequest (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/layer.js:152:17)
+    at /Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:295:15
+    at processParams (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:582:12)
+    at next (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:291:5) {
+  code: 'ER_BAD_FIELD_ERROR',
+  errno: 1054,
+  sql: 'INSERT INTO pantry_items \n' +
+    '            (organization_id, user_id, name, category, quantity, unit, expiry_date, location, batch_number, purchase_price, notes, supplier_id) \n' +
+    "            VALUES (1, 4, 'Consectetur', 'Other', 1, 'pcs', '2026-02-07', NULL, NULL, 49, 'Imported from receipt scan', NULL)",
+  sqlState: '42S22',
+  sqlMessage: "Unknown column 'user_id' in 'field list'"
+}
+Error: Unknown column 'user_id' in 'field list'
+    at PromisePool.query (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/mysql2/lib/promise/pool.js:36:22)
+    at addItem (/Users/teja.kanchi/Desktop/hackthon/backend/controllers/pantryController.js:32:37)
+    at Layer.handleRequest (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/layer.js:152:17)
+    at next (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/route.js:157:13)
+    at Route.dispatch (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/route.js:117:3)
+    at handle (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:435:11)
+    at Layer.handleRequest (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/layer.js:152:17)
+    at /Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:295:15
+    at processParams (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:582:12)
+    at next (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:291:5) {
+  code: 'ER_BAD_FIELD_ERROR',
+  errno: 1054,
+  sql: 'INSERT INTO pantry_items \n' +
+    '            (organization_id, user_id, name, category, quantity, unit, expiry_date, location, batch_number, purchase_price, notes, supplier_id) \n' +
+    "            VALUES (1, 4, 'Dolore', 'Other', 1, 'pcs', '2026-02-07', NULL, NULL, 809, 'Imported from receipt scan', NULL)",
+  sqlState: '42S22',
+  sqlMessage: "Unknown column 'user_id' in 'field list'"
+}
+Error: Unknown column 'user_id' in 'field list'
+    at PromisePool.query (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/mysql2/lib/promise/pool.js:36:22)
+    at addItem (/Users/teja.kanchi/Desktop/hackthon/backend/controllers/pantryController.js:32:37)
+    at Layer.handleRequest (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/layer.js:152:17)
+    at next (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/route.js:157:13)
+    at Route.dispatch (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/route.js:117:3)
+    at handle (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:435:11)
+    at Layer.handleRequest (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/layer.js:152:17)
+    at /Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:295:15
+    at processParams (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:582:12)
+    at next (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:291:5) {
+  code: 'ER_BAD_FIELD_ERROR',
+  errno: 1054,
+  sql: 'INSERT INTO pantry_items \n' +
+    '            (organization_id, user_id, name, category, quantity, unit, expiry_date, location, batch_number, purchase_price, notes, supplier_id) \n' +
+    "            VALUES (1, 4, 'Minim veniam', 'Other', 1, 'pcs', '2026-02-07', NULL, NULL, 20.4, 'Imported from receipt scan', NULL)",
+  sqlState: '42S22',
+  sqlMessage: "Unknown column 'user_id' in 'field list'"
+}
+Error: Unknown column 'user_id' in 'field list'
+    at PromisePool.query (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/mysql2/lib/promise/pool.js:36:22)
+    at addItem (/Users/teja.kanchi/Desktop/hackthon/backend/controllers/pantryController.js:32:37)
+    at Layer.handleRequest (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/layer.js:152:17)
+    at next (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/route.js:157:13)
+    at Route.dispatch (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/route.js:117:3)
+    at handle (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:435:11)
+    at Layer.handleRequest (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/layer.js:152:17)
+    at /Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:295:15
+    at processParams (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:582:12)
+    at next (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:291:5) {
+  code: 'ER_BAD_FIELD_ERROR',
+  errno: 1054,
+  sql: 'INSERT INTO pantry_items \n' +
+    '            (organization_id, user_id, name, category, quantity, unit, expiry_date, location, batch_number, purchase_price, notes, supplier_id) \n' +
+    "            VALUES (1, 4, 'Mollit', 'Other', 1, 'pcs', '2026-02-07', NULL, NULL, 558, 'Imported from receipt scan', NULL)",
+  sqlState: '42S22',
+  sqlMessage: "Unknown column 'user_id' in 'field list'"
+}
+Error: Unknown column 'user_id' in 'field list'
+    at PromisePool.query (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/mysql2/lib/promise/pool.js:36:22)
+    at addItem (/Users/teja.kanchi/Desktop/hackthon/backend/controllers/pantryController.js:32:37)
+    at Layer.handleRequest (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/layer.js:152:17)
+    at next (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/route.js:157:13)
+    at Route.dispatch (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/route.js:117:3)
+    at handle (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:435:11)
+    at Layer.handleRequest (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/layer.js:152:17)
+    at /Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:295:15
+    at processParams (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:582:12)
+    at next (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:291:5) {
+  code: 'ER_BAD_FIELD_ERROR',
+  errno: 1054,
+  sql: 'INSERT INTO pantry_items \n' +
+    '            (organization_id, user_id, name, category, quantity, unit, expiry_date, location, batch_number, purchase_price, notes, supplier_id) \n' +
+    "            VALUES (1, 4, 'Sunt in culp', 'Other', 1, 'pcs', '2026-02-07', NULL, NULL, 34.7, 'Imported from receipt scan', NULL)",
+  sqlState: '42S22',
+  sqlMessage: "Unknown column 'user_id' in 'field list'"
+}
+Error: Unknown column 'user_id' in 'field list'
+    at PromisePool.query (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/mysql2/lib/promise/pool.js:36:22)
+    at addItem (/Users/teja.kanchi/Desktop/hackthon/backend/controllers/pantryController.js:32:37)
+    at Layer.handleRequest (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/layer.js:152:17)
+    at next (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/route.js:157:13)
+    at Route.dispatch (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/route.js:117:3)
+    at handle (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:435:11)
+    at Layer.handleRequest (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/layer.js:152:17)
+    at /Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:295:15
+    at processParams (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:582:12)
+    at next (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:291:5) {
+  code: 'ER_BAD_FIELD_ERROR',
+  errno: 1054,
+  sql: 'INSERT INTO pantry_items \n' +
+    '            (organization_id, user_id, name, category, quantity, unit, expiry_date, location, batch_number, purchase_price, notes, supplier_id) \n' +
+    "            VALUES (1, 4, 'Sint', 'Other', 1, 'pcs', '2026-02-07', NULL, NULL, 798, 'Imported from receipt scan', NULL)",
+  sqlState: '42S22',
+  sqlMessage: "Unknown column 'user_id' in 'field list'"
+}
+Error: Unknown column 'user_id' in 'field list'
+    at PromisePool.query (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/mysql2/lib/promise/pool.js:36:22)
+    at addItem (/Users/teja.kanchi/Desktop/hackthon/backend/controllers/pantryController.js:32:37)
+    at Layer.handleRequest (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/layer.js:152:17)
+    at next (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/route.js:157:13)
+    at Route.dispatch (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/route.js:117:3)
+    at handle (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:435:11)
+    at Layer.handleRequest (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/layer.js:152:17)
+    at /Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:295:15
+    at processParams (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:582:12)
+    at next (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:291:5) {
+  code: 'ER_BAD_FIELD_ERROR',
+  errno: 1054,
+  sql: 'INSERT INTO pantry_items \n' +
+    '            (organization_id, user_id, name, category, quantity, unit, expiry_date, location, batch_number, purchase_price, notes, supplier_id) \n' +
+    "            VALUES (1, 4, 'Duis aute', 'Other', 1, 'pcs', '2026-02-07', NULL, NULL, 44.03, 'Imported from receipt scan', NULL)",
+  sqlState: '42S22',
+  sqlMessage: "Unknown column 'user_id' in 'field list'"
+}
+Error: Unknown column 'user_id' in 'field list'
+    at PromisePool.query (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/mysql2/lib/promise/pool.js:36:22)
+    at addItem (/Users/teja.kanchi/Desktop/hackthon/backend/controllers/pantryController.js:32:37)
+    at Layer.handleRequest (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/layer.js:152:17)
+    at next (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/route.js:157:13)
+    at Route.dispatch (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/route.js:117:3)
+    at handle (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:435:11)
+    at Layer.handleRequest (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/layer.js:152:17)
+    at /Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:295:15
+    at processParams (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:582:12)
+    at next (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:291:5) {
+  code: 'ER_BAD_FIELD_ERROR',
+  errno: 1054,
+  sql: 'INSERT INTO pantry_items \n' +
+    '            (organization_id, user_id, name, category, quantity, unit, expiry_date, location, batch_number, purchase_price, notes, supplier_id) \n' +
+    "            VALUES (1, 4, 'Check number', 'Other', 1, 'pcs', '2026-02-07', NULL, NULL, 577, 'Imported from receipt scan', NULL)",
+  sqlState: '42S22',
+  sqlMessage: "Unknown column 'user_id' in 'field list'"
+}
+Error: Unknown column 'user_id' in 'field list'
+    at PromisePool.query (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/mysql2/lib/promise/pool.js:36:22)
+    at addItem (/Users/teja.kanchi/Desktop/hackthon/backend/controllers/pantryController.js:32:37)
+    at Layer.handleRequest (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/layer.js:152:17)
+    at next (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/route.js:157:13)
+    at Route.dispatch (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/route.js:117:3)
+    at handle (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:435:11)
+    at Layer.handleRequest (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/layer.js:152:17)
+    at /Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:295:15
+    at processParams (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:582:12)
+    at next (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:291:5) {
+  code: 'ER_BAD_FIELD_ERROR',
+  errno: 1054,
+  sql: 'INSERT INTO pantry_items \n' +
+    '            (organization_id, user_id, name, category, quantity, unit, expiry_date, location, batch_number, purchase_price, notes, supplier_id) \n' +
+    "            VALUES (1, 4, 'millk', 'Other', 1, 'box', '2026-02-03', '~21.95° N, ~89.17° E', '', '', 'add the millk', NULL)",
+  sqlState: '42S22',
+  sqlMessage: "Unknown column 'user_id' in 'field list'"
+}
+Error: Unknown column 'd.updated_at' in 'order clause'
+    at PromisePool.query (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/mysql2/lib/promise/pool.js:36:22)
+    at getMyClaims (/Users/teja.kanchi/Desktop/hackthon/backend/controllers/donationController.js:65:35)
+    at Layer.handleRequest (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/layer.js:152:17)
+    at next (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/route.js:157:13)
+    at Route.dispatch (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/route.js:117:3)
+    at handle (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:435:11)
+    at Layer.handleRequest (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/layer.js:152:17)
+    at /Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:295:15
+    at processParams (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:582:12)
+    at next (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:291:5) {
+  code: 'ER_BAD_FIELD_ERROR',
+  errno: 1054,
+  sql: 'SELECT d.*, o.name as donor_name \n' +
+    '             FROM donations d \n' +
+    '             JOIN organizations o ON d.organization_id = o.id \n' +
+    '             WHERE d.claimed_by_org_id = 1 \n' +
+    '             ORDER BY d.updated_at DESC',
+  sqlState: '42S22',
+  sqlMessage: "Unknown column 'd.updated_at' in 'order clause'"
+}
+Error: Unknown column 'd.updated_at' in 'order clause'
+    at PromisePool.query (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/mysql2/lib/promise/pool.js:36:22)
+    at getMyClaims (/Users/teja.kanchi/Desktop/hackthon/backend/controllers/donationController.js:65:35)
+    at Layer.handleRequest (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/layer.js:152:17)
+    at next (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/route.js:157:13)
+    at Route.dispatch (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/route.js:117:3)
+    at handle (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:435:11)
+    at Layer.handleRequest (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/layer.js:152:17)
+    at /Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:295:15
+    at processParams (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:582:12)
+    at next (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:291:5) {
+  code: 'ER_BAD_FIELD_ERROR',
+  errno: 1054,
+  sql: 'SELECT d.*, o.name as donor_name \n' +
+    '             FROM donations d \n' +
+    '             JOIN organizations o ON d.organization_id = o.id \n' +
+    '             WHERE d.claimed_by_org_id = 1 \n' +
+    '             ORDER BY d.updated_at DESC',
+  sqlState: '42S22',
+  sqlMessage: "Unknown column 'd.updated_at' in 'order clause'"
+}
+Error: Unknown column 'd.updated_at' in 'order clause'
+    at PromisePool.query (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/mysql2/lib/promise/pool.js:36:22)
+    at getMyClaims (/Users/teja.kanchi/Desktop/hackthon/backend/controllers/donationController.js:65:35)
+    at Layer.handleRequest (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/layer.js:152:17)
+    at next (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/route.js:157:13)
+    at Route.dispatch (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/route.js:117:3)
+    at handle (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:435:11)
+    at Layer.handleRequest (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/layer.js:152:17)
+    at /Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:295:15
+    at processParams (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:582:12)
+    at next (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:291:5) {
+  code: 'ER_BAD_FIELD_ERROR',
+  errno: 1054,
+  sql: 'SELECT d.*, o.name as donor_name \n' +
+    '             FROM donations d \n' +
+    '             JOIN organizations o ON d.organization_id = o.id \n' +
+    '             WHERE d.claimed_by_org_id = 1 \n' +
+    '             ORDER BY d.updated_at DESC',
+  sqlState: '42S22',
+  sqlMessage: "Unknown column 'd.updated_at' in 'order clause'"
+}
+Error: Unknown column 'user_id' in 'field list'
+    at PromisePool.query (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/mysql2/lib/promise/pool.js:36:22)
+    at addItem (/Users/teja.kanchi/Desktop/hackthon/backend/controllers/pantryController.js:32:37)
+    at Layer.handleRequest (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/layer.js:152:17)
+    at next (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/route.js:157:13)
+    at Route.dispatch (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/route.js:117:3)
+    at handle (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:435:11)
+    at Layer.handleRequest (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/layer.js:152:17)
+    at /Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:295:15
+    at processParams (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:582:12)
+    at next (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:291:5) {
+  code: 'ER_BAD_FIELD_ERROR',
+  errno: 1054,
+  sql: 'INSERT INTO pantry_items \n' +
+    '            (organization_id, user_id, name, category, quantity, unit, expiry_date, location, batch_number, purchase_price, notes, supplier_id) \n' +
+    "            VALUES (2, 5, 'Milk', 'Produce', '12', 'pcs', '2026-12-31', '', '', '100', '', NULL)",
+  sqlState: '42S22',
+  sqlMessage: "Unknown column 'user_id' in 'field list'"
+}
+Error: Unknown column 'user_id' in 'field list'
+    at PromisePool.query (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/mysql2/lib/promise/pool.js:36:22)
+    at addItem (/Users/teja.kanchi/Desktop/hackthon/backend/controllers/pantryController.js:32:37)
+    at Layer.handleRequest (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/layer.js:152:17)
+    at next (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/route.js:157:13)
+    at Route.dispatch (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/route.js:117:3)
+    at handle (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:435:11)
+    at Layer.handleRequest (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/layer.js:152:17)
+    at /Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:295:15
+    at processParams (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:582:12)
+    at next (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:291:5) {
+  code: 'ER_BAD_FIELD_ERROR',
+  errno: 1054,
+  sql: 'INSERT INTO pantry_items \n' +
+    '            (organization_id, user_id, name, category, quantity, unit, expiry_date, location, batch_number, purchase_price, notes, supplier_id) \n' +
+    "            VALUES (2, 5, 'Ole] af oo', 'Other', 1, 'pcs', '2026-02-07', NULL, NULL, '', 'Imported from receipt scan (keyword)', NULL)",
+  sqlState: '42S22',
+  sqlMessage: "Unknown column 'user_id' in 'field list'"
+}
+Error: Unknown column 'user_id' in 'field list'
+    at PromisePool.query (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/mysql2/lib/promise/pool.js:36:22)
+    at addItem (/Users/teja.kanchi/Desktop/hackthon/backend/controllers/pantryController.js:32:37)
+    at Layer.handleRequest (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/layer.js:152:17)
+    at next (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/route.js:157:13)
+    at Route.dispatch (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/route.js:117:3)
+    at handle (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:435:11)
+    at Layer.handleRequest (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/layer.js:152:17)
+    at /Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:295:15
+    at processParams (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:582:12)
+    at next (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:291:5) {
+  code: 'ER_BAD_FIELD_ERROR',
+  errno: 1054,
+  sql: 'INSERT INTO pantry_items \n' +
+    '            (organization_id, user_id, name, category, quantity, unit, expiry_date, location, batch_number, purchase_price, notes, supplier_id) \n' +
+    "            VALUES (2, 5, 'Np cd gh', 'Other', 1, 'pcs', '2026-02-07', NULL, NULL, '', 'Imported from receipt scan (keyword)', NULL)",
+  sqlState: '42S22',
+  sqlMessage: "Unknown column 'user_id' in 'field list'"
+}
+Error: Unknown column 'user_id' in 'field list'
+    at PromisePool.query (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/mysql2/lib/promise/pool.js:36:22)
+    at addItem (/Users/teja.kanchi/Desktop/hackthon/backend/controllers/pantryController.js:32:37)
+    at Layer.handleRequest (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/layer.js:152:17)
+    at next (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/route.js:157:13)
+    at Route.dispatch (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/route.js:117:3)
+    at handle (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:435:11)
+    at Layer.handleRequest (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/layer.js:152:17)
+    at /Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:295:15
+    at processParams (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:582:12)
+    at next (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:291:5) {
+  code: 'ER_BAD_FIELD_ERROR',
+  errno: 1054,
+  sql: 'INSERT INTO pantry_items \n' +
+    '            (organization_id, user_id, name, category, quantity, unit, expiry_date, location, batch_number, purchase_price, notes, supplier_id) \n' +
+    "            VALUES (2, 5, 'Oar hie', 'Other', 1, 'pcs', '2026-02-07', NULL, NULL, '', 'Imported from receipt scan (keyword)', NULL)",
+  sqlState: '42S22',
+  sqlMessage: "Unknown column 'user_id' in 'field list'"
+}
+Error: Unknown column 'user_id' in 'field list'
+    at PromisePool.query (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/mysql2/lib/promise/pool.js:36:22)
+    at addItem (/Users/teja.kanchi/Desktop/hackthon/backend/controllers/pantryController.js:32:37)
+    at Layer.handleRequest (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/layer.js:152:17)
+    at next (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/route.js:157:13)
+    at Route.dispatch (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/route.js:117:3)
+    at handle (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:435:11)
+    at Layer.handleRequest (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/layer.js:152:17)
+    at /Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:295:15
+    at processParams (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:582:12)
+    at next (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:291:5) {
+  code: 'ER_BAD_FIELD_ERROR',
+  errno: 1054,
+  sql: 'INSERT INTO pantry_items \n' +
+    '            (organization_id, user_id, name, category, quantity, unit, expiry_date, location, batch_number, purchase_price, notes, supplier_id) \n' +
+    "            VALUES (2, 5, 'Early', 'Other', 1, 'pcs', '2026-02-07', NULL, NULL, '', 'Imported from receipt scan (keyword)', NULL)",
+  sqlState: '42S22',
+  sqlMessage: "Unknown column 'user_id' in 'field list'"
+}
+Error: Unknown column 'user_id' in 'field list'
+    at PromisePool.query (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/mysql2/lib/promise/pool.js:36:22)
+    at addItem (/Users/teja.kanchi/Desktop/hackthon/backend/controllers/pantryController.js:32:37)
+    at Layer.handleRequest (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/layer.js:152:17)
+    at next (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/route.js:157:13)
+    at Route.dispatch (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/route.js:117:3)
+    at handle (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:435:11)
+    at Layer.handleRequest (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/layer.js:152:17)
+    at /Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:295:15
+    at processParams (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:582:12)
+    at next (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:291:5) {
+  code: 'ER_BAD_FIELD_ERROR',
+  errno: 1054,
+  sql: 'INSERT INTO pantry_items \n' +
+    '            (organization_id, user_id, name, category, quantity, unit, expiry_date, location, batch_number, purchase_price, notes, supplier_id) \n' +
+    "            VALUES (2, 5, 'Cl tt', 'Other', 1, 'pcs', '2026-02-07', NULL, NULL, '', 'Imported from receipt scan (keyword)', NULL)",
+  sqlState: '42S22',
+  sqlMessage: "Unknown column 'user_id' in 'field list'"
+}
+Error: Unknown column 'user_id' in 'field list'
+    at PromisePool.query (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/mysql2/lib/promise/pool.js:36:22)
+    at addItem (/Users/teja.kanchi/Desktop/hackthon/backend/controllers/pantryController.js:32:37)
+    at Layer.handleRequest (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/layer.js:152:17)
+    at next (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/route.js:157:13)
+    at Route.dispatch (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/route.js:117:3)
+    at handle (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:435:11)
+    at Layer.handleRequest (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/layer.js:152:17)
+    at /Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:295:15
+    at processParams (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:582:12)
+    at next (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:291:5) {
+  code: 'ER_BAD_FIELD_ERROR',
+  errno: 1054,
+  sql: 'INSERT INTO pantry_items \n' +
+    '            (organization_id, user_id, name, category, quantity, unit, expiry_date, location, batch_number, purchase_price, notes, supplier_id) \n' +
+    "            VALUES (2, 5, 'Dolore', 'Other', 1, 'pcs', '2026-02-07', NULL, NULL, 809, 'Imported from receipt scan', NULL)",
+  sqlState: '42S22',
+  sqlMessage: "Unknown column 'user_id' in 'field list'"
+}
+Error: Unknown column 'user_id' in 'field list'
+    at PromisePool.query (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/mysql2/lib/promise/pool.js:36:22)
+    at addItem (/Users/teja.kanchi/Desktop/hackthon/backend/controllers/pantryController.js:32:37)
+    at Layer.handleRequest (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/layer.js:152:17)
+    at next (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/route.js:157:13)
+    at Route.dispatch (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/route.js:117:3)
+    at handle (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:435:11)
+    at Layer.handleRequest (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/layer.js:152:17)
+    at /Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:295:15
+    at processParams (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:582:12)
+    at next (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:291:5) {
+  code: 'ER_BAD_FIELD_ERROR',
+  errno: 1054,
+  sql: 'INSERT INTO pantry_items \n' +
+    '            (organization_id, user_id, name, category, quantity, unit, expiry_date, location, batch_number, purchase_price, notes, supplier_id) \n' +
+    "            VALUES (2, 5, 'Consectetur', 'Other', 1, 'pcs', '2026-02-07', NULL, NULL, 49, 'Imported from receipt scan', NULL)",
+  sqlState: '42S22',
+  sqlMessage: "Unknown column 'user_id' in 'field list'"
+}
+Error: Unknown column 'user_id' in 'field list'
+    at PromisePool.query (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/mysql2/lib/promise/pool.js:36:22)
+    at addItem (/Users/teja.kanchi/Desktop/hackthon/backend/controllers/pantryController.js:32:37)
+    at Layer.handleRequest (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/layer.js:152:17)
+    at next (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/route.js:157:13)
+    at Route.dispatch (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/route.js:117:3)
+    at handle (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:435:11)
+    at Layer.handleRequest (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/layer.js:152:17)
+    at /Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:295:15
+    at processParams (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:582:12)
+    at next (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:291:5) {
+  code: 'ER_BAD_FIELD_ERROR',
+  errno: 1054,
+  sql: 'INSERT INTO pantry_items \n' +
+    '            (organization_id, user_id, name, category, quantity, unit, expiry_date, location, batch_number, purchase_price, notes, supplier_id) \n' +
+    "            VALUES (2, 5, 'Sint', 'Other', 1, 'pcs', '2026-02-07', NULL, NULL, 798, 'Imported from receipt scan', NULL)",
+  sqlState: '42S22',
+  sqlMessage: "Unknown column 'user_id' in 'field list'"
+}
+Error: Unknown column 'user_id' in 'field list'
+    at PromisePool.query (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/mysql2/lib/promise/pool.js:36:22)
+    at addItem (/Users/teja.kanchi/Desktop/hackthon/backend/controllers/pantryController.js:32:37)
+    at Layer.handleRequest (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/layer.js:152:17)
+    at next (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/route.js:157:13)
+    at Route.dispatch (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/route.js:117:3)
+    at handle (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:435:11)
+    at Layer.handleRequest (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/layer.js:152:17)
+    at /Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:295:15
+    at processParams (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:582:12)
+    at next (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:291:5) {
+  code: 'ER_BAD_FIELD_ERROR',
+  errno: 1054,
+  sql: 'INSERT INTO pantry_items \n' +
+    '            (organization_id, user_id, name, category, quantity, unit, expiry_date, location, batch_number, purchase_price, notes, supplier_id) \n' +
+    "            VALUES (2, 5, 'Mollit', 'Other', 1, 'pcs', '2026-02-07', NULL, NULL, 558, 'Imported from receipt scan', NULL)",
+  sqlState: '42S22',
+  sqlMessage: "Unknown column 'user_id' in 'field list'"
+}
+Error: Unknown column 'user_id' in 'field list'
+    at PromisePool.query (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/mysql2/lib/promise/pool.js:36:22)
+    at addItem (/Users/teja.kanchi/Desktop/hackthon/backend/controllers/pantryController.js:32:37)
+    at Layer.handleRequest (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/layer.js:152:17)
+    at next (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/route.js:157:13)
+    at Route.dispatch (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/route.js:117:3)
+    at handle (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:435:11)
+    at Layer.handleRequest (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/layer.js:152:17)
+    at /Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:295:15
+    at processParams (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:582:12)
+    at next (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:291:5) {
+  code: 'ER_BAD_FIELD_ERROR',
+  errno: 1054,
+  sql: 'INSERT INTO pantry_items \n' +
+    '            (organization_id, user_id, name, category, quantity, unit, expiry_date, location, batch_number, purchase_price, notes, supplier_id) \n' +
+    "            VALUES (2, 5, 'Sunt in culp', 'Other', 1, 'pcs', '2026-02-07', NULL, NULL, 34.7, 'Imported from receipt scan', NULL)",
+  sqlState: '42S22',
+  sqlMessage: "Unknown column 'user_id' in 'field list'"
+}
+Error: Unknown column 'user_id' in 'field list'
+    at PromisePool.query (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/mysql2/lib/promise/pool.js:36:22)
+    at addItem (/Users/teja.kanchi/Desktop/hackthon/backend/controllers/pantryController.js:32:37)
+    at Layer.handleRequest (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/layer.js:152:17)
+    at next (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/route.js:157:13)
+    at Route.dispatch (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/route.js:117:3)
+    at handle (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:435:11)
+    at Layer.handleRequest (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/layer.js:152:17)
+    at /Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:295:15
+    at processParams (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:582:12)
+    at next (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:291:5) {
+  code: 'ER_BAD_FIELD_ERROR',
+  errno: 1054,
+  sql: 'INSERT INTO pantry_items \n' +
+    '            (organization_id, user_id, name, category, quantity, unit, expiry_date, location, batch_number, purchase_price, notes, supplier_id) \n' +
+    "            VALUES (2, 5, 'Check number', 'Other', 1, 'pcs', '2026-02-07', NULL, NULL, 577, 'Imported from receipt scan', NULL)",
+  sqlState: '42S22',
+  sqlMessage: "Unknown column 'user_id' in 'field list'"
+}
+Error: Unknown column 'user_id' in 'field list'
+    at PromisePool.query (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/mysql2/lib/promise/pool.js:36:22)
+    at addItem (/Users/teja.kanchi/Desktop/hackthon/backend/controllers/pantryController.js:32:37)
+    at Layer.handleRequest (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/layer.js:152:17)
+    at next (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/route.js:157:13)
+    at Route.dispatch (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/route.js:117:3)
+    at handle (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:435:11)
+    at Layer.handleRequest (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/layer.js:152:17)
+    at /Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:295:15
+    at processParams (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:582:12)
+    at next (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:291:5) {
+  code: 'ER_BAD_FIELD_ERROR',
+  errno: 1054,
+  sql: 'INSERT INTO pantry_items \n' +
+    '            (organization_id, user_id, name, category, quantity, unit, expiry_date, location, batch_number, purchase_price, notes, supplier_id) \n' +
+    "            VALUES (2, 5, 'Duis aute', 'Other', 1, 'pcs', '2026-02-07', NULL, NULL, 44.03, 'Imported from receipt scan', NULL)",
+  sqlState: '42S22',
+  sqlMessage: "Unknown column 'user_id' in 'field list'"
+}
+Error: Unknown column 'user_id' in 'field list'
+    at PromisePool.query (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/mysql2/lib/promise/pool.js:36:22)
+    at addItem (/Users/teja.kanchi/Desktop/hackthon/backend/controllers/pantryController.js:32:37)
+    at Layer.handleRequest (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/layer.js:152:17)
+    at next (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/route.js:157:13)
+    at Route.dispatch (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/route.js:117:3)
+    at handle (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:435:11)
+    at Layer.handleRequest (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/layer.js:152:17)
+    at /Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:295:15
+    at processParams (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:582:12)
+    at next (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:291:5) {
+  code: 'ER_BAD_FIELD_ERROR',
+  errno: 1054,
+  sql: 'INSERT INTO pantry_items \n' +
+    '            (organization_id, user_id, name, category, quantity, unit, expiry_date, location, batch_number, purchase_price, notes, supplier_id) \n' +
+    "            VALUES (2, 5, 'Minim veniam', 'Other', 1, 'pcs', '2026-02-07', NULL, NULL, 20.4, 'Imported from receipt scan', NULL)",
+  sqlState: '42S22',
+  sqlMessage: "Unknown column 'user_id' in 'field list'"
+}
+Error: Unknown column 'user_id' in 'field list'
+    at PromisePool.query (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/mysql2/lib/promise/pool.js:36:22)
+    at addItem (/Users/teja.kanchi/Desktop/hackthon/backend/controllers/pantryController.js:32:37)
+    at Layer.handleRequest (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/layer.js:152:17)
+    at next (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/route.js:157:13)
+    at Route.dispatch (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/route.js:117:3)
+    at handle (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:435:11)
+    at Layer.handleRequest (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/layer.js:152:17)
+    at /Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:295:15
+    at processParams (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:582:12)
+    at next (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:291:5) {
+  code: 'ER_BAD_FIELD_ERROR',
+  errno: 1054,
+  sql: 'INSERT INTO pantry_items \n' +
+    '            (organization_id, user_id, name, category, quantity, unit, expiry_date, location, batch_number, purchase_price, notes, supplier_id) \n' +
+    "            VALUES (2, 5, 'millk', 'Dairy', 1, 'kg', '2026-02-03', 'tirupathi', '', '30', '', NULL)",
+  sqlState: '42S22',
+  sqlMessage: "Unknown column 'user_id' in 'field list'"
+}
+Error: Unknown column 'user_id' in 'field list'
+    at PromisePool.query (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/mysql2/lib/promise/pool.js:36:22)
+    at addItem (/Users/teja.kanchi/Desktop/hackthon/backend/controllers/pantryController.js:32:37)
+    at Layer.handleRequest (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/layer.js:152:17)
+    at next (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/route.js:157:13)
+    at Route.dispatch (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/route.js:117:3)
+    at handle (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:435:11)
+    at Layer.handleRequest (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/layer.js:152:17)
+    at /Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:295:15
+    at processParams (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:582:12)
+    at next (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:291:5) {
+  code: 'ER_BAD_FIELD_ERROR',
+  errno: 1054,
+  sql: 'INSERT INTO pantry_items \n' +
+    '            (organization_id, user_id, name, category, quantity, unit, expiry_date, location, batch_number, purchase_price, notes, supplier_id) \n' +
+    "            VALUES (2, 5, 'millk', 'Dairy', 1, 'kg', '2026-02-03', 'tirupathi', '', '30', '', NULL)",
+  sqlState: '42S22',
+  sqlMessage: "Unknown column 'user_id' in 'field list'"
+}
+Error: Unknown column 'user_id' in 'field list'
+    at PromisePool.query (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/mysql2/lib/promise/pool.js:36:22)
+    at addItem (/Users/teja.kanchi/Desktop/hackthon/backend/controllers/pantryController.js:32:37)
+    at Layer.handleRequest (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/layer.js:152:17)
+    at next (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/route.js:157:13)
+    at Route.dispatch (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/route.js:117:3)
+    at handle (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:435:11)
+    at Layer.handleRequest (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/layer.js:152:17)
+    at /Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:295:15
+    at processParams (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:582:12)
+    at next (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:291:5) {
+  code: 'ER_BAD_FIELD_ERROR',
+  errno: 1054,
+  sql: 'INSERT INTO pantry_items \n' +
+    '            (organization_id, user_id, name, category, quantity, unit, expiry_date, location, batch_number, purchase_price, notes, supplier_id) \n' +
+    "            VALUES (2, 5, 'millk', 'Dairy', 1, 'kg', '2026-02-03', 'tirupathi', '', '30', '', NULL)",
+  sqlState: '42S22',
+  sqlMessage: "Unknown column 'user_id' in 'field list'"
+}
+Error: Unknown column 'user_id' in 'field list'
+    at PromisePool.query (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/mysql2/lib/promise/pool.js:36:22)
+    at addItem (/Users/teja.kanchi/Desktop/hackthon/backend/controllers/pantryController.js:32:37)
+    at Layer.handleRequest (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/layer.js:152:17)
+    at next (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/route.js:157:13)
+    at Route.dispatch (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/route.js:117:3)
+    at handle (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:435:11)
+    at Layer.handleRequest (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/layer.js:152:17)
+    at /Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:295:15
+    at processParams (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:582:12)
+    at next (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:291:5) {
+  code: 'ER_BAD_FIELD_ERROR',
+  errno: 1054,
+  sql: 'INSERT INTO pantry_items \n' +
+    '            (organization_id, user_id, name, category, quantity, unit, expiry_date, location, batch_number, purchase_price, notes, supplier_id) \n' +
+    "            VALUES (2, 5, 'millk', 'Dairy', 1, 'kg', '2026-02-03', 'tirupathi', '', '30', '', NULL)",
+  sqlState: '42S22',
+  sqlMessage: "Unknown column 'user_id' in 'field list'"
+}
+Error: Unknown column 'user_id' in 'field list'
+    at PromisePool.query (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/mysql2/lib/promise/pool.js:36:22)
+    at addItem (/Users/teja.kanchi/Desktop/hackthon/backend/controllers/pantryController.js:32:37)
+    at Layer.handleRequest (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/layer.js:152:17)
+    at next (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/route.js:157:13)
+    at Route.dispatch (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/route.js:117:3)
+    at handle (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:435:11)
+    at Layer.handleRequest (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/layer.js:152:17)
+    at /Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:295:15
+    at processParams (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:582:12)
+    at next (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:291:5) {
+  code: 'ER_BAD_FIELD_ERROR',
+  errno: 1054,
+  sql: 'INSERT INTO pantry_items \n' +
+    '            (organization_id, user_id, name, category, quantity, unit, expiry_date, location, batch_number, purchase_price, notes, supplier_id) \n' +
+    "            VALUES (2, 5, 'Ole] af oo', 'Other', 1, 'pcs', '2026-02-07', NULL, NULL, '', 'Imported from receipt scan (keyword)', NULL)",
+  sqlState: '42S22',
+  sqlMessage: "Unknown column 'user_id' in 'field list'"
+}
+Error: Unknown column 'user_id' in 'field list'
+    at PromisePool.query (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/mysql2/lib/promise/pool.js:36:22)
+    at addItem (/Users/teja.kanchi/Desktop/hackthon/backend/controllers/pantryController.js:32:37)
+    at Layer.handleRequest (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/layer.js:152:17)
+    at next (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/route.js:157:13)
+    at Route.dispatch (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/route.js:117:3)
+    at handle (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:435:11)
+    at Layer.handleRequest (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/layer.js:152:17)
+    at /Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:295:15
+    at processParams (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:582:12)
+    at next (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:291:5) {
+  code: 'ER_BAD_FIELD_ERROR',
+  errno: 1054,
+  sql: 'INSERT INTO pantry_items \n' +
+    '            (organization_id, user_id, name, category, quantity, unit, expiry_date, location, batch_number, purchase_price, notes, supplier_id) \n' +
+    "            VALUES (2, 5, 'Oar hie', 'Other', 1, 'pcs', '2026-02-07', NULL, NULL, '', 'Imported from receipt scan (keyword)', NULL)",
+  sqlState: '42S22',
+  sqlMessage: "Unknown column 'user_id' in 'field list'"
+}
+Error: Unknown column 'user_id' in 'field list'
+    at PromisePool.query (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/mysql2/lib/promise/pool.js:36:22)
+    at addItem (/Users/teja.kanchi/Desktop/hackthon/backend/controllers/pantryController.js:32:37)
+    at Layer.handleRequest (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/layer.js:152:17)
+    at next (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/route.js:157:13)
+    at Route.dispatch (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/route.js:117:3)
+    at handle (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:435:11)
+    at Layer.handleRequest (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/layer.js:152:17)
+    at /Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:295:15
+    at processParams (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:582:12)
+    at next (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:291:5) {
+  code: 'ER_BAD_FIELD_ERROR',
+  errno: 1054,
+  sql: 'INSERT INTO pantry_items \n' +
+    '            (organization_id, user_id, name, category, quantity, unit, expiry_date, location, batch_number, purchase_price, notes, supplier_id) \n' +
+    "            VALUES (2, 5, 'Np cd gh', 'Other', 1, 'pcs', '2026-02-07', NULL, NULL, '', 'Imported from receipt scan (keyword)', NULL)",
+  sqlState: '42S22',
+  sqlMessage: "Unknown column 'user_id' in 'field list'"
+}
+Error: Unknown column 'user_id' in 'field list'
+    at PromisePool.query (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/mysql2/lib/promise/pool.js:36:22)
+    at addItem (/Users/teja.kanchi/Desktop/hackthon/backend/controllers/pantryController.js:32:37)
+    at Layer.handleRequest (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/layer.js:152:17)
+    at next (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/route.js:157:13)
+    at Route.dispatch (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/route.js:117:3)
+    at handle (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:435:11)
+    at Layer.handleRequest (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/layer.js:152:17)
+    at /Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:295:15
+    at processParams (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:582:12)
+    at next (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:291:5) {
+  code: 'ER_BAD_FIELD_ERROR',
+  errno: 1054,
+  sql: 'INSERT INTO pantry_items \n' +
+    '            (organization_id, user_id, name, category, quantity, unit, expiry_date, location, batch_number, purchase_price, notes, supplier_id) \n' +
+    "            VALUES (2, 5, 'Early', 'Other', 1, 'pcs', '2026-02-07', NULL, NULL, '', 'Imported from receipt scan (keyword)', NULL)",
+  sqlState: '42S22',
+  sqlMessage: "Unknown column 'user_id' in 'field list'"
+}
+Error: Unknown column 'user_id' in 'field list'
+    at PromisePool.query (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/mysql2/lib/promise/pool.js:36:22)
+    at addItem (/Users/teja.kanchi/Desktop/hackthon/backend/controllers/pantryController.js:32:37)
+    at Layer.handleRequest (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/layer.js:152:17)
+    at next (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/route.js:157:13)
+    at Route.dispatch (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/route.js:117:3)
+    at handle (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:435:11)
+    at Layer.handleRequest (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/layer.js:152:17)
+    at /Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:295:15
+    at processParams (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:582:12)
+    at next (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:291:5) {
+  code: 'ER_BAD_FIELD_ERROR',
+  errno: 1054,
+  sql: 'INSERT INTO pantry_items \n' +
+    '            (organization_id, user_id, name, category, quantity, unit, expiry_date, location, batch_number, purchase_price, notes, supplier_id) \n' +
+    "            VALUES (2, 5, 'Cl tt', 'Other', 1, 'pcs', '2026-02-07', NULL, NULL, '', 'Imported from receipt scan (keyword)', NULL)",
+  sqlState: '42S22',
+  sqlMessage: "Unknown column 'user_id' in 'field list'"
+}
+Error: Unknown column 'user_id' in 'field list'
+    at PromisePool.query (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/mysql2/lib/promise/pool.js:36:22)
+    at addItem (/Users/teja.kanchi/Desktop/hackthon/backend/controllers/pantryController.js:32:37)
+    at Layer.handleRequest (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/layer.js:152:17)
+    at next (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/route.js:157:13)
+    at Route.dispatch (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/route.js:117:3)
+    at handle (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:435:11)
+    at Layer.handleRequest (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/layer.js:152:17)
+    at /Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:295:15
+    at processParams (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:582:12)
+    at next (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:291:5) {
+  code: 'ER_BAD_FIELD_ERROR',
+  errno: 1054,
+  sql: 'INSERT INTO pantry_items \n' +
+    '            (organization_id, user_id, name, category, quantity, unit, expiry_date, location, batch_number, purchase_price, notes, supplier_id) \n' +
+    "            VALUES (2, 5, 'Ole] af oo', 'Other', 1, 'pcs', '2026-02-07', NULL, NULL, '', 'Imported from receipt scan (keyword)', NULL)",
+  sqlState: '42S22',
+  sqlMessage: "Unknown column 'user_id' in 'field list'"
+}
+Error: Unknown column 'user_id' in 'field list'
+    at PromisePool.query (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/mysql2/lib/promise/pool.js:36:22)
+    at addItem (/Users/teja.kanchi/Desktop/hackthon/backend/controllers/pantryController.js:32:37)
+    at Layer.handleRequest (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/layer.js:152:17)
+    at next (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/route.js:157:13)
+    at Route.dispatch (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/route.js:117:3)
+    at handle (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:435:11)
+    at Layer.handleRequest (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/layer.js:152:17)
+    at /Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:295:15
+    at processParams (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:582:12)
+    at next (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:291:5) {
+  code: 'ER_BAD_FIELD_ERROR',
+  errno: 1054,
+  sql: 'INSERT INTO pantry_items \n' +
+    '            (organization_id, user_id, name, category, quantity, unit, expiry_date, location, batch_number, purchase_price, notes, supplier_id) \n' +
+    "            VALUES (2, 5, 'Oar hie', 'Other', 1, 'pcs', '2026-02-07', NULL, NULL, '', 'Imported from receipt scan (keyword)', NULL)",
+  sqlState: '42S22',
+  sqlMessage: "Unknown column 'user_id' in 'field list'"
+}
+Error: Unknown column 'user_id' in 'field list'
+    at PromisePool.query (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/mysql2/lib/promise/pool.js:36:22)
+    at addItem (/Users/teja.kanchi/Desktop/hackthon/backend/controllers/pantryController.js:32:37)
+    at Layer.handleRequest (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/layer.js:152:17)
+    at next (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/route.js:157:13)
+    at Route.dispatch (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/route.js:117:3)
+    at handle (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:435:11)
+    at Layer.handleRequest (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/layer.js:152:17)
+    at /Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:295:15
+    at processParams (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:582:12)
+    at next (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:291:5) {
+  code: 'ER_BAD_FIELD_ERROR',
+  errno: 1054,
+  sql: 'INSERT INTO pantry_items \n' +
+    '            (organization_id, user_id, name, category, quantity, unit, expiry_date, location, batch_number, purchase_price, notes, supplier_id) \n' +
+    "            VALUES (2, 5, 'Np cd gh', 'Other', 1, 'pcs', '2026-02-07', NULL, NULL, '', 'Imported from receipt scan (keyword)', NULL)",
+  sqlState: '42S22',
+  sqlMessage: "Unknown column 'user_id' in 'field list'"
+}
+Error: Unknown column 'user_id' in 'field list'
+    at PromisePool.query (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/mysql2/lib/promise/pool.js:36:22)
+    at addItem (/Users/teja.kanchi/Desktop/hackthon/backend/controllers/pantryController.js:32:37)
+    at Layer.handleRequest (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/layer.js:152:17)
+    at next (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/route.js:157:13)
+    at Route.dispatch (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/route.js:117:3)
+    at handle (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:435:11)
+    at Layer.handleRequest (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/layer.js:152:17)
+    at /Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:295:15
+    at processParams (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:582:12)
+    at next (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:291:5) {
+  code: 'ER_BAD_FIELD_ERROR',
+  errno: 1054,
+  sql: 'INSERT INTO pantry_items \n' +
+    '            (organization_id, user_id, name, category, quantity, unit, expiry_date, location, batch_number, purchase_price, notes, supplier_id) \n' +
+    "            VALUES (2, 5, 'Cl tt', 'Other', 1, 'pcs', '2026-02-07', NULL, NULL, '', 'Imported from receipt scan (keyword)', NULL)",
+  sqlState: '42S22',
+  sqlMessage: "Unknown column 'user_id' in 'field list'"
+}
+Error: Unknown column 'user_id' in 'field list'
+    at PromisePool.query (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/mysql2/lib/promise/pool.js:36:22)
+    at addItem (/Users/teja.kanchi/Desktop/hackthon/backend/controllers/pantryController.js:32:37)
+    at Layer.handleRequest (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/layer.js:152:17)
+    at next (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/route.js:157:13)
+    at Route.dispatch (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/route.js:117:3)
+    at handle (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:435:11)
+    at Layer.handleRequest (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/layer.js:152:17)
+    at /Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:295:15
+    at processParams (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:582:12)
+    at next (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:291:5) {
+  code: 'ER_BAD_FIELD_ERROR',
+  errno: 1054,
+  sql: 'INSERT INTO pantry_items \n' +
+    '            (organization_id, user_id, name, category, quantity, unit, expiry_date, location, batch_number, purchase_price, notes, supplier_id) \n' +
+    "            VALUES (2, 5, 'Early', 'Other', 1, 'pcs', '2026-02-07', NULL, NULL, '', 'Imported from receipt scan (keyword)', NULL)",
+  sqlState: '42S22',
+  sqlMessage: "Unknown column 'user_id' in 'field list'"
+}
+Error: Incorrect decimal value: '' for column 'purchase_price' at row 1
+    at PromisePool.query (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/mysql2/lib/promise/pool.js:36:22)
+    at addItem (/Users/teja.kanchi/Desktop/hackthon/backend/controllers/pantryController.js:32:37)
+    at Layer.handleRequest (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/layer.js:152:17)
+    at next (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/route.js:157:13)
+    at Route.dispatch (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/route.js:117:3)
+    at handle (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:435:11)
+    at Layer.handleRequest (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/layer.js:152:17)
+    at /Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:295:15
+    at processParams (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:582:12)
+    at next (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:291:5) {
+  code: 'ER_TRUNCATED_WRONG_VALUE_FOR_FIELD',
+  errno: 1366,
+  sql: 'INSERT INTO pantry_items \n' +
+    '            (organization_id, user_id, name, category, quantity, unit, expiry_date, location, batch_number, purchase_price, notes, supplier_id) \n' +
+    "            VALUES (2, 5, 'Ole] af oo', 'Other', 1, 'pcs', '2026-02-07', NULL, NULL, '', 'Imported from receipt scan (keyword)', NULL)",
+  sqlState: 'HY000',
+  sqlMessage: "Incorrect decimal value: '' for column 'purchase_price' at row 1"
+}
+Error: Incorrect decimal value: '' for column 'purchase_price' at row 1
+    at PromisePool.query (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/mysql2/lib/promise/pool.js:36:22)
+    at addItem (/Users/teja.kanchi/Desktop/hackthon/backend/controllers/pantryController.js:32:37)
+    at Layer.handleRequest (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/layer.js:152:17)
+    at next (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/route.js:157:13)
+    at Route.dispatch (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/route.js:117:3)
+    at handle (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:435:11)
+    at Layer.handleRequest (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/layer.js:152:17)
+    at /Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:295:15
+    at processParams (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:582:12)
+    at next (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:291:5) {
+  code: 'ER_TRUNCATED_WRONG_VALUE_FOR_FIELD',
+  errno: 1366,
+  sql: 'INSERT INTO pantry_items \n' +
+    '            (organization_id, user_id, name, category, quantity, unit, expiry_date, location, batch_number, purchase_price, notes, supplier_id) \n' +
+    "            VALUES (2, 5, 'Oar hie', 'Other', 1, 'pcs', '2026-02-07', NULL, NULL, '', 'Imported from receipt scan (keyword)', NULL)",
+  sqlState: 'HY000',
+  sqlMessage: "Incorrect decimal value: '' for column 'purchase_price' at row 1"
+}
+Error: Incorrect decimal value: '' for column 'purchase_price' at row 1
+    at PromisePool.query (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/mysql2/lib/promise/pool.js:36:22)
+    at addItem (/Users/teja.kanchi/Desktop/hackthon/backend/controllers/pantryController.js:32:37)
+    at Layer.handleRequest (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/layer.js:152:17)
+    at next (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/route.js:157:13)
+    at Route.dispatch (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/route.js:117:3)
+    at handle (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:435:11)
+    at Layer.handleRequest (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/layer.js:152:17)
+    at /Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:295:15
+    at processParams (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:582:12)
+    at next (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:291:5) {
+  code: 'ER_TRUNCATED_WRONG_VALUE_FOR_FIELD',
+  errno: 1366,
+  sql: 'INSERT INTO pantry_items \n' +
+    '            (organization_id, user_id, name, category, quantity, unit, expiry_date, location, batch_number, purchase_price, notes, supplier_id) \n' +
+    "            VALUES (2, 5, 'Np cd gh', 'Other', 1, 'pcs', '2026-02-07', NULL, NULL, '', 'Imported from receipt scan (keyword)', NULL)",
+  sqlState: 'HY000',
+  sqlMessage: "Incorrect decimal value: '' for column 'purchase_price' at row 1"
+}
+Error: Incorrect decimal value: '' for column 'purchase_price' at row 1
+    at PromisePool.query (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/mysql2/lib/promise/pool.js:36:22)
+    at addItem (/Users/teja.kanchi/Desktop/hackthon/backend/controllers/pantryController.js:32:37)
+    at Layer.handleRequest (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/layer.js:152:17)
+    at next (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/route.js:157:13)
+    at Route.dispatch (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/route.js:117:3)
+    at handle (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:435:11)
+    at Layer.handleRequest (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/layer.js:152:17)
+    at /Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:295:15
+    at processParams (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:582:12)
+    at next (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:291:5) {
+  code: 'ER_TRUNCATED_WRONG_VALUE_FOR_FIELD',
+  errno: 1366,
+  sql: 'INSERT INTO pantry_items \n' +
+    '            (organization_id, user_id, name, category, quantity, unit, expiry_date, location, batch_number, purchase_price, notes, supplier_id) \n' +
+    "            VALUES (2, 5, 'Early', 'Other', 1, 'pcs', '2026-02-07', NULL, NULL, '', 'Imported from receipt scan (keyword)', NULL)",
+  sqlState: 'HY000',
+  sqlMessage: "Incorrect decimal value: '' for column 'purchase_price' at row 1"
+}
+Error: Incorrect decimal value: '' for column 'purchase_price' at row 1
+    at PromisePool.query (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/mysql2/lib/promise/pool.js:36:22)
+    at addItem (/Users/teja.kanchi/Desktop/hackthon/backend/controllers/pantryController.js:32:37)
+    at Layer.handleRequest (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/layer.js:152:17)
+    at next (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/route.js:157:13)
+    at Route.dispatch (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/route.js:117:3)
+    at handle (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:435:11)
+    at Layer.handleRequest (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/layer.js:152:17)
+    at /Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:295:15
+    at processParams (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:582:12)
+    at next (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:291:5) {
+  code: 'ER_TRUNCATED_WRONG_VALUE_FOR_FIELD',
+  errno: 1366,
+  sql: 'INSERT INTO pantry_items \n' +
+    '            (organization_id, user_id, name, category, quantity, unit, expiry_date, location, batch_number, purchase_price, notes, supplier_id) \n' +
+    "            VALUES (2, 5, 'Cl tt', 'Other', 1, 'pcs', '2026-02-07', NULL, NULL, '', 'Imported from receipt scan (keyword)', NULL)",
+  sqlState: 'HY000',
+  sqlMessage: "Incorrect decimal value: '' for column 'purchase_price' at row 1"
+}
+Error: Truncated incorrect DOUBLE value: 'undefined'
+    at PromisePool.query (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/mysql2/lib/promise/pool.js:36:22)
+    at deleteItem (/Users/teja.kanchi/Desktop/hackthon/backend/controllers/pantryController.js:84:37)
+    at Layer.handleRequest (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/layer.js:152:17)
+    at next (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/route.js:157:13)
+    at Route.dispatch (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/route.js:117:3)
+    at handle (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:435:11)
+    at Layer.handleRequest (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/layer.js:152:17)
+    at /Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:295:15
+    at param (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:600:14)
+    at param (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:610:14) {
+  code: 'ER_TRUNCATED_WRONG_VALUE',
+  errno: 1292,
+  sql: "DELETE FROM pantry_items WHERE id = 'undefined' AND organization_id = 2",
+  sqlState: '22007',
+  sqlMessage: "Truncated incorrect DOUBLE value: 'undefined'"
+}
+Error: Truncated incorrect DOUBLE value: 'undefined'
+    at PromisePool.query (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/mysql2/lib/promise/pool.js:36:22)
+    at deleteItem (/Users/teja.kanchi/Desktop/hackthon/backend/controllers/pantryController.js:84:37)
+    at Layer.handleRequest (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/layer.js:152:17)
+    at next (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/route.js:157:13)
+    at Route.dispatch (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/route.js:117:3)
+    at handle (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:435:11)
+    at Layer.handleRequest (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/layer.js:152:17)
+    at /Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:295:15
+    at param (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:600:14)
+    at param (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:610:14) {
+  code: 'ER_TRUNCATED_WRONG_VALUE',
+  errno: 1292,
+  sql: "DELETE FROM pantry_items WHERE id = 'undefined' AND organization_id = 2",
+  sqlState: '22007',
+  sqlMessage: "Truncated incorrect DOUBLE value: 'undefined'"
+}
+Error: Truncated incorrect DOUBLE value: 'undefined'
+    at PromisePool.query (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/mysql2/lib/promise/pool.js:36:22)
+    at deleteItem (/Users/teja.kanchi/Desktop/hackthon/backend/controllers/pantryController.js:84:37)
+    at Layer.handleRequest (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/layer.js:152:17)
+    at next (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/route.js:157:13)
+    at Route.dispatch (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/route.js:117:3)
+    at handle (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:435:11)
+    at Layer.handleRequest (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/layer.js:152:17)
+    at /Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:295:15
+    at param (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:600:14)
+    at param (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:610:14) {
+  code: 'ER_TRUNCATED_WRONG_VALUE',
+  errno: 1292,
+  sql: "DELETE FROM pantry_items WHERE id = 'undefined' AND organization_id = 2",
+  sqlState: '22007',
+  sqlMessage: "Truncated incorrect DOUBLE value: 'undefined'"
+}
+Error: Incorrect decimal value: '' for column 'purchase_price' at row 1
+    at PromisePool.query (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/mysql2/lib/promise/pool.js:36:22)
+    at addItem (/Users/teja.kanchi/Desktop/hackthon/backend/controllers/pantryController.js:32:37)
+    at Layer.handleRequest (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/layer.js:152:17)
+    at next (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/route.js:157:13)
+    at Route.dispatch (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/route.js:117:3)
+    at handle (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:435:11)
+    at Layer.handleRequest (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/layer.js:152:17)
+    at /Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:295:15
+    at processParams (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:582:12)
+    at next (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:291:5) {
+  code: 'ER_TRUNCATED_WRONG_VALUE_FOR_FIELD',
+  errno: 1366,
+  sql: 'INSERT INTO pantry_items \n' +
+    '            (organization_id, user_id, name, category, quantity, unit, expiry_date, location, batch_number, purchase_price, notes, supplier_id) \n' +
+    "            VALUES (1, 4, 'Ole] af oo', 'Other', 1, 'pcs', '2026-02-07', NULL, NULL, '', 'Imported from receipt scan (keyword)', NULL)",
+  sqlState: 'HY000',
+  sqlMessage: "Incorrect decimal value: '' for column 'purchase_price' at row 1"
+}
+Error: Incorrect decimal value: '' for column 'purchase_price' at row 1
+    at PromisePool.query (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/mysql2/lib/promise/pool.js:36:22)
+    at addItem (/Users/teja.kanchi/Desktop/hackthon/backend/controllers/pantryController.js:32:37)
+    at Layer.handleRequest (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/layer.js:152:17)
+    at next (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/route.js:157:13)
+    at Route.dispatch (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/route.js:117:3)
+    at handle (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:435:11)
+    at Layer.handleRequest (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/layer.js:152:17)
+    at /Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:295:15
+    at processParams (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:582:12)
+    at next (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:291:5) {
+  code: 'ER_TRUNCATED_WRONG_VALUE_FOR_FIELD',
+  errno: 1366,
+  sql: 'INSERT INTO pantry_items \n' +
+    '            (organization_id, user_id, name, category, quantity, unit, expiry_date, location, batch_number, purchase_price, notes, supplier_id) \n' +
+    "            VALUES (1, 4, 'Oar hie', 'Other', 1, 'pcs', '2026-02-07', NULL, NULL, '', 'Imported from receipt scan (keyword)', NULL)",
+  sqlState: 'HY000',
+  sqlMessage: "Incorrect decimal value: '' for column 'purchase_price' at row 1"
+}
+Error: Incorrect decimal value: '' for column 'purchase_price' at row 1
+    at PromisePool.query (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/mysql2/lib/promise/pool.js:36:22)
+    at addItem (/Users/teja.kanchi/Desktop/hackthon/backend/controllers/pantryController.js:32:37)
+    at Layer.handleRequest (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/layer.js:152:17)
+    at next (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/route.js:157:13)
+    at Route.dispatch (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/route.js:117:3)
+    at handle (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:435:11)
+    at Layer.handleRequest (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/layer.js:152:17)
+    at /Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:295:15
+    at processParams (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:582:12)
+    at next (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:291:5) {
+  code: 'ER_TRUNCATED_WRONG_VALUE_FOR_FIELD',
+  errno: 1366,
+  sql: 'INSERT INTO pantry_items \n' +
+    '            (organization_id, user_id, name, category, quantity, unit, expiry_date, location, batch_number, purchase_price, notes, supplier_id) \n' +
+    "            VALUES (1, 4, 'Np cd gh', 'Other', 1, 'pcs', '2026-02-07', NULL, NULL, '', 'Imported from receipt scan (keyword)', NULL)",
+  sqlState: 'HY000',
+  sqlMessage: "Incorrect decimal value: '' for column 'purchase_price' at row 1"
+}
+Error: Incorrect decimal value: '' for column 'purchase_price' at row 1
+    at PromisePool.query (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/mysql2/lib/promise/pool.js:36:22)
+    at addItem (/Users/teja.kanchi/Desktop/hackthon/backend/controllers/pantryController.js:32:37)
+    at Layer.handleRequest (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/layer.js:152:17)
+    at next (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/route.js:157:13)
+    at Route.dispatch (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/route.js:117:3)
+    at handle (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:435:11)
+    at Layer.handleRequest (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/layer.js:152:17)
+    at /Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:295:15
+    at processParams (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:582:12)
+    at next (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:291:5) {
+  code: 'ER_TRUNCATED_WRONG_VALUE_FOR_FIELD',
+  errno: 1366,
+  sql: 'INSERT INTO pantry_items \n' +
+    '            (organization_id, user_id, name, category, quantity, unit, expiry_date, location, batch_number, purchase_price, notes, supplier_id) \n' +
+    "            VALUES (1, 4, 'Early', 'Other', 1, 'pcs', '2026-02-07', NULL, NULL, '', 'Imported from receipt scan (keyword)', NULL)",
+  sqlState: 'HY000',
+  sqlMessage: "Incorrect decimal value: '' for column 'purchase_price' at row 1"
+}
+Error: Incorrect decimal value: '' for column 'purchase_price' at row 1
+    at PromisePool.query (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/mysql2/lib/promise/pool.js:36:22)
+    at addItem (/Users/teja.kanchi/Desktop/hackthon/backend/controllers/pantryController.js:32:37)
+    at Layer.handleRequest (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/layer.js:152:17)
+    at next (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/route.js:157:13)
+    at Route.dispatch (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/route.js:117:3)
+    at handle (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:435:11)
+    at Layer.handleRequest (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/layer.js:152:17)
+    at /Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:295:15
+    at processParams (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:582:12)
+    at next (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:291:5) {
+  code: 'ER_TRUNCATED_WRONG_VALUE_FOR_FIELD',
+  errno: 1366,
+  sql: 'INSERT INTO pantry_items \n' +
+    '            (organization_id, user_id, name, category, quantity, unit, expiry_date, location, batch_number, purchase_price, notes, supplier_id) \n' +
+    "            VALUES (1, 4, 'Cl tt', 'Other', 1, 'pcs', '2026-02-07', NULL, NULL, '', 'Imported from receipt scan (keyword)', NULL)",
+  sqlState: 'HY000',
+  sqlMessage: "Incorrect decimal value: '' for column 'purchase_price' at row 1"
+}
+📝 Register Request Body: {
+  email: 'teja@gmail.com',
+  password: 'teja12345',
+  name: "k.teja's Home",
+  sector_type: 'Household',
+  city: 'Local',
+  organization_name: "k.teja's Home",
+  full_name: 'k.teja'
+}
+🏢 Creating Organization: k.teja's Home
+✅ Organization Created ID: 1
+👤 Creating User: teja@gmail.com
+✅ User Created ID: 1
