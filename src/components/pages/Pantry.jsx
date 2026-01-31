@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useAuth } from '@contexts/AuthContext';
 import { pantryService } from '@services/api';
+import { usePantry } from '@contexts/PantryContext';
 import { Plus, Search, Filter, Grid3x3, List, Download, ScanLine } from 'lucide-react';
 import PantryGrid from '@components/pantry/PantryGrid';
 import PantryList from '@components/pantry/PantryList';
@@ -13,9 +14,10 @@ import ScanReceiptModal from '@components/pantry/ScanReceiptModal';
 const Pantry = () => {
     const { currentOrganization, user } = useAuth();
     const location = useLocation();
-    const [items, setItems] = useState([]);
+    const { items, loading: pantryLoading, loadPantryItems, addItem: addItemApi, updateItem: updateItemApi, deleteItem: deleteItemApi, consumeItem: consumeItemApi, bulkAdd: bulkAddApi } = usePantry();
+    // local filtered view
     const [filteredItems, setFilteredItems] = useState([]);
-    const [loading, setLoading] = useState(true);
+    const [loading, setLoading] = useState(false);
     const [viewMode, setViewMode] = useState('grid'); // 'grid' or 'list'
 
     // Modals
@@ -39,42 +41,26 @@ const Pantry = () => {
     });
 
     useEffect(() => {
-        loadPantryItems();
-
         // Open scan modal if coming from dashboard with openScan state
         if (location.state?.openScan) {
             setShowScanModal(true);
             // Clear state so it doesn't reopen on refresh
             window.history.replaceState({}, document.title);
         }
-    }, [currentOrganization, user]);
+    }, [location.state]);
+
+    useEffect(() => {
+        // reflect pantry provider loading into local loading state
+        setLoading(pantryLoading);
+        // recalc stats whenever items from context change
+        calculateStats(items || []);
+    }, [pantryLoading, items]);
 
     useEffect(() => {
         filterAndSortItems();
     }, [items, searchQuery, selectedCategory, sortBy]);
 
-    const loadPantryItems = async () => {
-        setLoading(true);
-        try {
-            const { data, error } = await pantryService.getPantryItems(
-                currentOrganization?.id,
-                currentOrganization ? null : user?.id
-            );
-
-            if (error) throw error;
-
-            if (data) {
-                // Sanitize data to ensure all items are objects
-                const sanitizedData = Array.isArray(data) ? data.map(item => Array.isArray(item) ? item[0] : item) : [];
-                setItems(sanitizedData);
-                calculateStats(sanitizedData);
-            }
-        } catch (error) {
-            console.error('Error loading pantry items:', error);
-        } finally {
-            setLoading(false);
-        }
-    };
+    // pantry items are provided by the PantryContext `items`
 
     const calculateStats = (pantryItems) => {
         const now = new Date();
@@ -135,16 +121,11 @@ const Pantry = () => {
 
     const handleAddItem = async (itemData) => {
         try {
-            const { data, error } = await pantryService.addPantryItem({
+            await addItemApi({
                 ...itemData,
                 organization_id: currentOrganization?.id,
                 user_id: currentOrganization ? null : user?.id,
             });
-
-            if (error) throw error;
-
-            const newItem = Array.isArray(data) ? data[0] : data;
-            setItems([...items, newItem]);
             setShowAddModal(false);
         } catch (error) {
             console.error('Error adding item:', error);
@@ -154,15 +135,7 @@ const Pantry = () => {
 
     const handleEditItem = async (itemData) => {
         try {
-            const { data, error } = await pantryService.updatePantryItem(
-                selectedItem.id,
-                itemData
-            );
-
-            if (error) throw error;
-
-            const updatedItem = Array.isArray(data) ? data[0] : data;
-            setItems(items.map((item) => (item.id === selectedItem.id ? updatedItem : item)));
+            await updateItemApi(selectedItem.id, itemData);
             setShowEditModal(false);
             setSelectedItem(null);
         } catch (error) {
@@ -175,11 +148,7 @@ const Pantry = () => {
         if (!window.confirm('Are you sure you want to delete this item?')) return;
 
         try {
-            const { error } = await pantryService.deletePantryItem(itemId);
-
-            if (error) throw error;
-
-            setItems(items.filter((item) => item.id !== itemId));
+            await deleteItemApi(itemId);
         } catch (error) {
             console.error('Error deleting item:', error);
             alert('Failed to delete item. Please try again.');
@@ -206,10 +175,8 @@ const Pantry = () => {
         if (!window.confirm(`Are you sure you want to delete ${selectedItems.length} items?`)) return;
 
         try {
-            const { error } = await pantryService.deletePantryItems(selectedItems);
-            if (error) throw error;
-
-            setItems(items.filter(item => !selectedItems.includes(item.id)));
+            // delete items one by one via service (backend doesn't support bulk delete endpoint)
+            await Promise.all(selectedItems.map(id => deleteItemApi(id)));
             setSelectedItems([]);
         } catch (error) {
             console.error('Error bulk deleting:', error);
@@ -219,9 +186,7 @@ const Pantry = () => {
 
     const handleConsumeItem = async (itemId) => {
         try {
-            const { error } = await pantryService.consumePantryItem(itemId);
-            if (error) throw error;
-            setItems(items.filter(item => item.id !== itemId));
+            await consumeItemApi(itemId);
         } catch (error) {
             console.error('Error consuming item:', error);
             alert('Failed to consume item. Please try again.');
@@ -235,18 +200,8 @@ const Pantry = () => {
 
     const handleBulkAddFromScan = async (scannedItems) => {
         try {
-            const addPromises = scannedItems.map((itemData) =>
-                pantryService.addPantryItem({
-                    ...itemData,
-                    organization_id: currentOrganization?.id,
-                    user_id: currentOrganization ? null : user?.id,
-                })
-            );
-
-            const results = await Promise.all(addPromises);
-            const newItems = results.map((r) => Array.isArray(r.data) ? r.data[0] : r.data).filter(Boolean);
-
-            setItems([...items, ...newItems]);
+            const prepared = scannedItems.map(i => ({ ...i, organization_id: currentOrganization?.id, user_id: currentOrganization ? null : user?.id }));
+            const newItems = await bulkAddApi(prepared);
             alert(`Successfully added ${newItems.length} items from receipt!`);
         } catch (error) {
             console.error('Error adding scanned items:', error);

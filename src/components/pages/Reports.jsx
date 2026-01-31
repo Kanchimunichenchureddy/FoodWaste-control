@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useAuth } from '@contexts/AuthContext';
-import { analyticsService } from '@services/api';
+import { analyticsService, aiService } from '@services/api';
+import { usePantry } from '@contexts/PantryContext';
 import {
     Chart as ChartJS,
     CategoryScale,
@@ -30,32 +31,36 @@ ChartJS.register(
 
 const Reports = () => {
     const { user } = useAuth();
+    const { items: pantryItems } = usePantry();
     const [loading, setLoading] = useState(true);
     const [overview, setOverview] = useState(null);
     const [catData, setCatData] = useState([]);
     const [reasonData, setReasonData] = useState([]);
     const [trends, setTrends] = useState([]);
+    const [aiInsights, setAiInsights] = useState(null);
     const [activeTab, setActiveTab] = useState('overview');
 
     useEffect(() => {
         loadAnalytics();
-    }, [user]);
+    }, [user, pantryItems]);
 
     const loadAnalytics = async () => {
         if (!user) return;
         setLoading(true);
         try {
-            const [overviewRes, catRes, reasonRes, trendsRes] = await Promise.all([
+            const [overviewRes, catRes, reasonRes, trendsRes, aiRes] = await Promise.all([
                 analyticsService.getOverview(user.organization_id),
                 analyticsService.getWasteByCategory(user.organization_id),
                 analyticsService.getWasteByReason(user.organization_id),
-                analyticsService.getWasteTrends(user.organization_id)
+                analyticsService.getWasteTrends(user.organization_id),
+                aiService.getWasteInsights()
             ]);
 
             setOverview(overviewRes.data);
             setCatData(catRes.data || []);
             setReasonData(reasonRes.data || []);
             setTrends(trendsRes.data || []);
+            setAiInsights(aiRes.data);
         } catch (error) {
             console.error("Failed to load analytics", error);
         } finally {
@@ -111,6 +116,35 @@ const Reports = () => {
                     <p className="text-emerald-600 font-medium">Insights from your real data — pantry, waste logs, and donations</p>
                 </div>
             </div>
+
+            {/* AI Insights Alert */}
+            {aiInsights && aiInsights.insights && (
+                <div className="rounded-2xl bg-gradient-to-r from-blue-50 to-purple-50 border border-blue-200 p-6">
+                    <div className="flex items-start gap-4">
+                        <div className="text-3xl">✨</div>
+                        <div className="flex-1">
+                            <h3 className="font-bold text-blue-900 mb-3 text-lg">AI-Powered Waste Prevention Insights</h3>
+                            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                                <div className="bg-white/60 rounded-xl p-3">
+                                    <p className="text-xs text-blue-600 font-bold mb-1">HIGH RISK ITEMS</p>
+                                    <p className="text-2xl font-black text-blue-900">{aiInsights.insights.itemsAtRisk}</p>
+                                    <p className="text-xs text-blue-700 mt-1">expiring within 7 days</p>
+                                </div>
+                                <div className="bg-white/60 rounded-xl p-3">
+                                    <p className="text-xs text-orange-600 font-bold mb-1">RECENT WASTE EVENTS</p>
+                                    <p className="text-2xl font-black text-orange-900">{aiInsights.insights.recentWasteEvents}</p>
+                                    <p className="text-xs text-orange-700 mt-1">last 30 days</p>
+                                </div>
+                                <div className="bg-white/60 rounded-xl p-3">
+                                    <p className="text-xs text-red-600 font-bold mb-1">POTENTIAL WASTE VALUE</p>
+                                    <p className="text-2xl font-black text-red-900">₹{aiInsights.insights.totalWasteValue}</p>
+                                    <p className="text-xs text-red-700 mt-1">at risk</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            )}
 
             {/* Overview Cards */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">

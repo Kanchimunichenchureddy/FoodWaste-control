@@ -31,3 +31,5 @@ out/
 # Gemini/Brain
 .gemini/
 brain/
+# Logs
+*.log

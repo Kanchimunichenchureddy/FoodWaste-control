@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { AuthProvider, useAuth } from '@contexts/AuthContext';
+import { PantryProvider } from '@contexts/PantryContext';
 
 // Pages
 import Login from '@components/pages/Login';
@@ -150,9 +151,11 @@ function AppRoutes() {
 function App() {
     return (
         <AuthProvider>
-            <BrowserRouter>
-                <AppRoutes />
-            </BrowserRouter>
+            <PantryProvider>
+                <BrowserRouter>
+                    <AppRoutes />
+                </BrowserRouter>
+            </PantryProvider>
         </AuthProvider>
     );
 }

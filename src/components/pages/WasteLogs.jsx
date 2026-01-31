@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useAuth } from '@contexts/AuthContext';
-import { wasteLogService, pantryService } from '@services/api';
-import { Plus, Download, Filter, Trash2 } from 'lucide-react';
+import { wasteLogService, pantryService, aiService } from '@services/api';
+import { Plus, Download, Filter, Trash2, Sparkles } from 'lucide-react';
 import WasteList from '@components/waste/WasteList';
 import WasteStats from '@components/waste/WasteStats';
 import LogWasteModal from '@components/waste/LogWasteModal';
@@ -16,6 +16,8 @@ const WasteLogs = () => {
     // Modals
     const [showLogModal, setShowLogModal] = useState(false);
     const [selectedPantryItem, setSelectedPantryItem] = useState(null); // If logging from pantry
+    const [aiInsights, setAiInsights] = useState(null);
+    const [showAiInsights, setShowAiInsights] = useState(false);
 
     // Filters
     const [dateRange, setDateRange] = useState('month'); // week, month, year, all
@@ -32,7 +34,15 @@ const WasteLogs = () => {
 
     useEffect(() => {
         loadWasteLogs();
+        loadAiInsights();
     }, [currentOrganization, user, dateRange]);
+
+    const loadAiInsights = async () => {
+        const { data, error } = await aiService.getWasteInsights();
+        if (!error && data) {
+            setAiInsights(data);
+        }
+    };
 
     useEffect(() => {
         filterLogs();
@@ -180,6 +190,43 @@ const WasteLogs = () => {
 
     return (
         <div className="space-y-6 pb-20 animate-slide-up">
+            {/* AI Insights Alert */}
+            {aiInsights && aiInsights.insights && (
+                <div className="rounded-2xl bg-blue-50 border border-blue-200 p-4 flex items-start gap-4">
+                    <div className="flex-1">
+                        <div className="flex items-center gap-2 mb-2">
+                            <Sparkles className="w-5 h-5 text-blue-600" />
+                            <h3 className="font-bold text-blue-900">AI Waste Insights</h3>
+                        </div>
+                        <div className="grid grid-cols-2 md:grid-cols-3 gap-3 text-sm text-blue-800">
+                            <p><strong>Items at Risk:</strong> {aiInsights.insights.itemsAtRisk}</p>
+                            <p><strong>Recent Waste Events:</strong> {aiInsights.insights.recentWasteEvents}</p>
+                            <p><strong>Waste Value:</strong> ₹{aiInsights.insights.totalWasteValue}</p>
+                        </div>
+                    </div>
+                    <button
+                        onClick={() => setShowAiInsights(!showAiInsights)}
+                        className="text-blue-600 hover:text-blue-800 font-bold"
+                    >
+                        {showAiInsights ? 'Hide' : 'Show'}
+                    </button>
+                </div>
+            )}
+
+            {/* Expiring Items Preview */}
+            {showAiInsights && aiInsights && aiInsights.expiringItems && aiInsights.expiringItems.length > 0 && (
+                <div className="glass-card p-6 bg-orange-50 border border-orange-200">
+                    <h3 className="font-bold text-orange-950 mb-4">⚠️ Items Expiring Soon</h3>
+                    <div className="space-y-2">
+                        {aiInsights.expiringItems.slice(0, 3).map((item, i) => (
+                            <p key={i} className="text-sm text-orange-800">
+                                <strong>{item.name}</strong> - Expires {new Date(item.expiry_date).toLocaleDateString()}
+                            </p>
+                        ))}
+                    </div>
+                </div>
+            )}
+
             {/* Header */}
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
                 <div>

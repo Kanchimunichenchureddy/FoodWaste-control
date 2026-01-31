@@ -1,7 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { X, Camera, Upload, ScanLine } from 'lucide-react';
+import { X, Camera, Upload, ScanLine, Sparkles } from 'lucide-react';
 import { Html5QrcodeScanner } from 'html5-qrcode';
 import Tesseract from 'tesseract.js';
+import { aiService } from '@services/api';
 
 const ScanReceiptModal = ({ onClose, onItemsExtracted }) => {
     const [scanning, setScanning] = useState(false);
@@ -80,14 +81,40 @@ const ScanReceiptModal = ({ onClose, onItemsExtracted }) => {
 
         setProcessing(true);
         try {
-            // Use Tesseract.js for OCR
-            const { data: { text } } = await Tesseract.recognize(file, 'eng', {
+            // Step 1: Use Tesseract.js for OCR
+            const { data: { text: ocrText } } = await Tesseract.recognize(file, 'eng', {
                 logger: (m) => console.log(m),
             });
 
-            // Parse receipt text
-            const items = parseReceiptText(text);
-            setExtractedItems(items);
+            console.log('OCR extracted text:', ocrText);
+
+            // Step 2: Use Gemini AI to intelligently parse the receipt
+            try {
+                const geminiItems = await aiService.extractReceipt(ocrText, file);
+                if (geminiItems && geminiItems.length > 0) {
+                    console.log('Gemini extracted items:', geminiItems);
+                    // Transform Gemini response to match pantry item format
+                    const formattedItems = geminiItems.map(item => ({
+                        name: item.name || 'Unknown Item',
+                        category: item.category || guessCategory(item.name),
+                        quantity: item.quantity || 1,
+                        unit: item.unit || 'pcs',
+                        expiry_date: item.expiry_date || getDefaultExpiry(),
+                        purchase_price: item.price || '',
+                        notes: `Imported from receipt scan (AI extracted)`,
+                    }));
+                    setExtractedItems(formattedItems);
+                } else {
+                    // Fallback to Tesseract parsing if Gemini returns empty
+                    const items = parseReceiptText(ocrText);
+                    setExtractedItems(items);
+                }
+            } catch (geminiError) {
+                console.error('Gemini extraction failed, falling back to regex parsing:', geminiError);
+                // Fallback to regex-based parsing
+                const items = parseReceiptText(ocrText);
+                setExtractedItems(items);
+            }
         } catch (error) {
             console.error('Error processing image:', error);
             alert('Failed to extract text from image');

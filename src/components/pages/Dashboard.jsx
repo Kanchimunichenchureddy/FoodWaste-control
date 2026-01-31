@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useAuth } from '@contexts/AuthContext';
-import { pantryService, wasteLogService, analyticsService } from '@services/api';
+import { wasteLogService, analyticsService } from '@services/api';
+import { usePantry } from '@contexts/PantryContext';
 import { TrendingUp, DollarSign, Leaf, AlertCircle, ScanLine, Loader2 } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
@@ -12,6 +13,7 @@ import DonationDashboard from './sectors/DonationDashboard';
 
 const Dashboard = () => {
     const { currentOrganization, user } = useAuth();
+    const { items: pantryItems } = usePantry();
     const navigate = useNavigate();
     const [stats, setStats] = useState({
         totalItems: 0,
@@ -27,15 +29,28 @@ const Dashboard = () => {
         loadDashboardData();
     }, [currentOrganization?.id, user?.id]);
 
+    // Listen for global pantry updates so dashboard can refresh in-place
+    useEffect(() => {
+        const handler = () => {
+            // Re-load dashboard data when pantry changes elsewhere in app
+            loadDashboardData();
+        };
+
+        window.addEventListener('pantryUpdated', handler);
+        return () => window.removeEventListener('pantryUpdated', handler);
+    }, [currentOrganization?.id, user?.id]);
+
     const loadDashboardData = async () => {
         setStatsError(null);
         try {
             const { data: overview, error: overviewError } = await analyticsService.getOverview();
 
-            // Always set stats so they show (from overview or zeros)
+            // Use overview for money/waste but prefer local pantry items for counts
+            const totalItemsFromPantry = (pantryItems || []).length;
+
             if (overviewError || !overview) {
                 setStats({
-                    totalItems: 0,
+                    totalItems: totalItemsFromPantry || 0,
                     expiringSoon: 0,
                     moneySaved: 0,
                     wasteReduced: 0,
@@ -43,28 +58,24 @@ const Dashboard = () => {
                 if (overviewError) setStatsError(overviewError.message || 'Could not load stats');
             } else {
                 setStats({
-                    totalItems: Number(overview.pantry?.total_items) || 0,
+                    totalItems: totalItemsFromPantry || Number(overview.pantry?.total_items) || 0,
                     expiringSoon: Number(overview.pantry?.expiring_soon) || 0,
                     moneySaved: Math.round((Number(overview.waste?.total_cost) || 0) * 0.8),
                     wasteReduced: Number(overview.waste?.total_quantity) || 0,
                 });
             }
 
-            // Load expiring items (backend returns array of item objects) - only show real user data, no OCR junk
-            const { data: pantryData, error: pantryError } = await pantryService.getPantryItems();
-
+            // Derive expiring items from pantry context items to ensure UI consistency
             const OCR_JUNK_NAMES = ['consectetur', 'dolore', 'lorem', 'ipsum', 'dolor', 'amet', 'sit', 'sed', 'elit'];
             const isRealItemName = (name) => {
                 const n = (name || '').toLowerCase().trim();
                 return n.length >= 2 && !OCR_JUNK_NAMES.includes(n) && !OCR_JUNK_NAMES.some(j => n.startsWith(j + ' ') || n === j);
             };
 
-            if (!pantryError && pantryData != null) {
-                const rawItems = Array.isArray(pantryData) ? pantryData : [];
+            if (pantryItems && pantryItems.length > 0) {
                 const now = new Date();
-                const processedItems = rawItems
-                    .map((dataItem) => {
-                        const item = Array.isArray(dataItem) ? dataItem[0] : dataItem;
+                const processedItems = pantryItems
+                    .map((item) => {
                         if (!item || !item.expiry_date || !isRealItemName(item.name)) return null;
                         const expiryDate = new Date(item.expiry_date);
                         if (isNaN(expiryDate.getTime())) return null;
@@ -77,6 +88,7 @@ const Dashboard = () => {
                     .filter((item) => item.daysLeft <= 7 && item.daysLeft >= -1)
                     .sort((a, b) => a.daysLeft - b.daysLeft);
                 setExpiringItems(expiring.slice(0, 3));
+                setStats((s) => ({ ...s, expiringSoon: expiring.length }));
             } else {
                 setExpiringItems([]);
             }

@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { X, Mic, MicOff } from 'lucide-react';
+import { X, Mic, MicOff, Sparkles } from 'lucide-react';
 import VoiceInput from './VoiceInput';
 import { useAuth } from '@contexts/AuthContext';
-import { supplierService } from '@services/api';
+import { supplierService, aiService } from '@services/api';
 
 const AddItemModal = ({ onClose, onAdd }) => {
     const [formData, setFormData] = useState({
@@ -21,6 +21,8 @@ const AddItemModal = ({ onClose, onAdd }) => {
     const [suppliers, setSuppliers] = useState([]);
     const [isListening, setIsListening] = useState(false);
     const [loading, setLoading] = useState(false);
+    const [aiPrediction, setAiPrediction] = useState(null);
+    const [showAiInsight, setShowAiInsight] = useState(false);
 
     useEffect(() => {
         if (currentOrganization) {
@@ -56,6 +58,31 @@ const AddItemModal = ({ onClose, onAdd }) => {
         setFormData({ ...formData, name: transcript });
     };
 
+    // Get AI waste prediction for the item
+    const getAiPrediction = async () => {
+        if (!formData.name || !formData.category) {
+            alert('Please enter item name and category first');
+            return;
+        }
+
+        setLoading(true);
+        const { data, error } = await aiService.predictWaste(
+            formData.name,
+            formData.category,
+            formData.quantity,
+            formData.purchase_price || 0,
+            formData.expiry_date || new Date().toISOString().split('T')[0]
+        );
+
+        if (!error && data) {
+            setAiPrediction(data);
+            setShowAiInsight(true);
+        } else {
+            console.error('Prediction error:', error);
+        }
+        setLoading(false);
+    };
+
     const handleSubmit = async (e) => {
         e.preventDefault();
 
@@ -82,6 +109,35 @@ const AddItemModal = ({ onClose, onAdd }) => {
                         <X className="w-6 h-6 text-emerald-600" />
                     </button>
                 </div>
+
+                {/* AI Prediction Panel */}
+                {showAiInsight && aiPrediction && (
+                    <div className="p-4 bg-blue-50 border-b border-blue-200 flex gap-3">
+                        <div className="flex-1">
+                            <div className="flex items-center gap-2 mb-2">
+                                <Sparkles className="w-4 h-4 text-blue-600" />
+                                <p className="font-bold text-blue-900">AI Waste Prediction</p>
+                            </div>
+                            <p className="text-sm text-blue-800 mb-1">
+                                <strong>Prediction:</strong> {aiPrediction.prediction}
+                            </p>
+                            <p className="text-sm text-blue-800 mb-1">
+                                <strong>Waste Score:</strong> {aiPrediction.wasteScore}/100
+                            </p>
+                            {aiPrediction.recommendations && (
+                                <p className="text-xs text-blue-700">
+                                    💡 {aiPrediction.recommendations[0]}
+                                </p>
+                            )}
+                        </div>
+                        <button
+                            onClick={() => setShowAiInsight(false)}
+                            className="text-blue-600 hover:text-blue-800 font-bold"
+                        >
+                            ✕
+                        </button>
+                    </div>
+                )}
 
                 {/* Form */}
                 <form onSubmit={handleSubmit} className="p-6 space-y-6">
@@ -277,13 +333,42 @@ const AddItemModal = ({ onClose, onAdd }) => {
                             Cancel
                         </button>
                         <button
+                            type="button"
+                            onClick={getAiPrediction}
+                            className="bg-blue-100 text-blue-700 px-4 py-2 rounded-xl text-sm font-bold flex items-center gap-2 hover:bg-blue-200 transition-all disabled:opacity-50"
+                            disabled={loading}
+                        >
+                            <Sparkles className="w-4 h-4" />
+                            {loading ? 'Analyzing...' : 'Get AI Insight'}
+                        </button>
+                        <button
                             type="submit"
+                            onClick={handleSubmit}
                             className="btn-premium flex-1"
                             disabled={loading}
                         >
                             {loading ? 'Adding...' : 'Add Item'}
                         </button>
                     </div>
+
+                    {/* AI Prediction Panel */}
+                    {showAiInsight && aiPrediction && (
+                        <div className="mt-4 glass-card p-4 bg-blue-50 border border-blue-200">
+                            <div className="flex items-start gap-3">
+                                <Sparkles className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
+                                <div className="flex-1">
+                                    <h4 className="font-black text-blue-900">AI Waste Risk Analysis</h4>
+                                    <div className="mt-2 space-y-1 text-sm text-blue-800">
+                                        <p><strong>Waste Score:</strong> {aiPrediction.wasteScore}/100</p>
+                                        <p><strong>Prediction:</strong> {aiPrediction.prediction}</p>
+                                        {aiPrediction.recommendations && aiPrediction.recommendations.length > 0 && (
+                                            <p><strong>Tip:</strong> {aiPrediction.recommendations[0]}</p>
+                                        )}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    )}
                 </form>
             </div>
         </div>

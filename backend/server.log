@@ -1220,3 +1220,141 @@ Error: Incorrect decimal value: '' for column 'purchase_price' at row 1
 ✅ Organization Created ID: 1
 👤 Creating User: teja@gmail.com
 ✅ User Created ID: 1
+📝 Register Request Body: {
+  email: 'copilot_test+1@example.com',
+  password: 'Password123!',
+  full_name: 'Copilot Test',
+  organization_name: 'CopilotOrg',
+  sector_type: 'Household'
+}
+🏢 Creating Organization: CopilotOrg
+✅ Organization Created ID: 2
+👤 Creating User: copilot_test+1@example.com
+✅ User Created ID: 2
+📝 Register Request Body: {
+  email: 'copilot_test+1@example.com',
+  password: 'Password123!',
+  full_name: 'Copilot Test',
+  organization_name: 'CopilotOrg',
+  sector_type: 'Household'
+}
+❌ User already exists: copilot_test+1@example.com
+📝 Register Request Body: {
+  email: 'kiran@gmail.com',
+  password: 'teja12345',
+  name: 'web lines fun',
+  sector_type: 'Donation',
+  city: 'Bangalore',
+  organization_name: 'web lines fun',
+  full_name: 'm.kiran'
+}
+🏢 Creating Organization: web lines fun
+✅ Organization Created ID: 3
+👤 Creating User: kiran@gmail.com
+✅ User Created ID: 3
+Error: Incorrect decimal value: '' for column 'purchase_price' at row 1
+    at PromisePool.query (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/mysql2/lib/promise/pool.js:36:22)
+    at addItem (/Users/teja.kanchi/Desktop/hackthon/backend/controllers/pantryController.js:32:37)
+    at Layer.handleRequest (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/layer.js:152:17)
+    at next (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/route.js:157:13)
+    at Route.dispatch (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/route.js:117:3)
+    at handle (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:435:11)
+    at Layer.handleRequest (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/layer.js:152:17)
+    at /Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:295:15
+    at processParams (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:582:12)
+    at next (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:291:5) {
+  code: 'ER_TRUNCATED_WRONG_VALUE_FOR_FIELD',
+  errno: 1366,
+  sql: 'INSERT INTO pantry_items \n' +
+    '            (organization_id, user_id, name, category, quantity, unit, expiry_date, location, batch_number, purchase_price, notes, supplier_id) \n' +
+    "            VALUES (1, 1, 'Np cd gh', 'Other', 1, 'pcs', '2026-02-07', NULL, NULL, '', 'Imported from receipt scan', NULL)",
+  sqlState: 'HY000',
+  sqlMessage: "Incorrect decimal value: '' for column 'purchase_price' at row 1"
+}
+Error: Incorrect decimal value: '' for column 'purchase_price' at row 1
+    at PromisePool.query (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/mysql2/lib/promise/pool.js:36:22)
+    at addItem (/Users/teja.kanchi/Desktop/hackthon/backend/controllers/pantryController.js:32:37)
+    at Layer.handleRequest (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/layer.js:152:17)
+    at next (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/route.js:157:13)
+    at Route.dispatch (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/route.js:117:3)
+    at handle (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:435:11)
+    at Layer.handleRequest (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/layer.js:152:17)
+    at /Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:295:15
+    at processParams (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:582:12)
+    at next (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:291:5) {
+  code: 'ER_TRUNCATED_WRONG_VALUE_FOR_FIELD',
+  errno: 1366,
+  sql: 'INSERT INTO pantry_items \n' +
+    '            (organization_id, user_id, name, category, quantity, unit, expiry_date, location, batch_number, purchase_price, notes, supplier_id) \n' +
+    "            VALUES (1, 1, 'Oar hie', 'Other', 1, 'pcs', '2026-02-07', NULL, NULL, '', 'Imported from receipt scan', NULL)",
+  sqlState: 'HY000',
+  sqlMessage: "Incorrect decimal value: '' for column 'purchase_price' at row 1"
+}
+Error: Incorrect decimal value: '' for column 'purchase_price' at row 1
+    at PromisePool.query (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/mysql2/lib/promise/pool.js:36:22)
+    at addItem (/Users/teja.kanchi/Desktop/hackthon/backend/controllers/pantryController.js:32:37)
+    at Layer.handleRequest (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/layer.js:152:17)
+    at next (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/route.js:157:13)
+    at Route.dispatch (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/route.js:117:3)
+    at handle (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:435:11)
+    at Layer.handleRequest (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/layer.js:152:17)
+    at /Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:295:15
+    at processParams (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:582:12)
+    at next (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:291:5) {
+  code: 'ER_TRUNCATED_WRONG_VALUE_FOR_FIELD',
+  errno: 1366,
+  sql: 'INSERT INTO pantry_items \n' +
+    '            (organization_id, user_id, name, category, quantity, unit, expiry_date, location, batch_number, purchase_price, notes, supplier_id) \n' +
+    "            VALUES (1, 1, 'Cl tt', 'Other', 1, 'pcs', '2026-02-07', NULL, NULL, '', 'Imported from receipt scan', NULL)",
+  sqlState: 'HY000',
+  sqlMessage: "Incorrect decimal value: '' for column 'purchase_price' at row 1"
+}
+Error: Incorrect decimal value: '' for column 'purchase_price' at row 1
+    at PromisePool.query (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/mysql2/lib/promise/pool.js:36:22)
+    at addItem (/Users/teja.kanchi/Desktop/hackthon/backend/controllers/pantryController.js:32:37)
+    at Layer.handleRequest (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/layer.js:152:17)
+    at next (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/route.js:157:13)
+    at Route.dispatch (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/route.js:117:3)
+    at handle (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:435:11)
+    at Layer.handleRequest (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/lib/layer.js:152:17)
+    at /Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:295:15
+    at processParams (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:582:12)
+    at next (/Users/teja.kanchi/Desktop/hackthon/backend/node_modules/router/index.js:291:5) {
+  code: 'ER_TRUNCATED_WRONG_VALUE_FOR_FIELD',
+  errno: 1366,
+  sql: 'INSERT INTO pantry_items \n' +
+    '            (organization_id, user_id, name, category, quantity, unit, expiry_date, location, batch_number, purchase_price, notes, supplier_id) \n' +
+    "            VALUES (1, 1, 'Ole] af oo', 'Other', 1, 'pcs', '2026-02-07', NULL, NULL, '', 'Imported from receipt scan', NULL)",
+  sqlState: 'HY000',
+  sqlMessage: "Incorrect decimal value: '' for column 'purchase_price' at row 1"
+}
+📝 Register Request Body: {
+  name: 'Test User 1769898042564',
+  email: 'test1769898042564@example.com',
+  password: 'TestPassword123!',
+  sector: 'donation',
+  organizationName: 'Test Org'
+}
+❌ Missing required fields
+📝 Register Request Body: {
+  full_name: 'Test User 1769898077503',
+  email: 'test1769898077503@example.com',
+  password: 'TestPassword123!',
+  sector_type: 'Restaurant',
+  organization_name: 'Test Org'
+}
+🏢 Creating Organization: Test Org
+✅ Organization Created ID: 4
+👤 Creating User: test1769898077503@example.com
+✅ User Created ID: 4
+📝 Register Request Body: {
+  full_name: 'Test User 1769898114975',
+  email: 'test1769898114975@example.com',
+  password: 'TestPassword123!',
+  sector_type: 'Restaurant',
+  organization_name: 'Test Org'
+}
+🏢 Creating Organization: Test Org
+✅ Organization Created ID: 5
+👤 Creating User: test1769898114975@example.com
+✅ User Created ID: 5

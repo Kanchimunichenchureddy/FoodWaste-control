@@ -501,4 +501,63 @@ export const teamService = {
     }
 };
 
-export const supabase = null; 
+export const aiService = {
+    async analyzeItem(itemName, category, quantity, unit, expiryDate, purchasePrice) {
+        try {
+            const response = await fetch(`${API_URL}/ai/analyze-item`, {
+                method: 'POST',
+                headers: getHeaders(),
+                body: JSON.stringify({ itemName, category, quantity, unit, expiryDate, purchasePrice }),
+            });
+            const data = await response.json();
+            if (!response.ok) throw new Error(data.message);
+            return { data, error: null };
+        } catch (error) {
+            return { data: null, error };
+        }
+    },
+
+    async extractReceipt(receiptText, receiptImage = null) {
+        try {
+            const response = await fetch(`${API_URL}/ai/extract-receipt`, {
+                method: 'POST',
+                headers: getHeaders(),
+                body: JSON.stringify({ receiptText, receiptImage }),
+            });
+            const data = await response.json();
+            if (!response.ok) throw new Error(data.message);
+            return { data, error: null };
+        } catch (error) {
+            return { data: null, error };
+        }
+    },
+
+    async getWasteInsights() {
+        try {
+            const response = await fetch(`${API_URL}/ai/waste-insights`, {
+                headers: getHeaders(),
+            });
+            const data = await response.json();
+            if (!response.ok) throw new Error(data.message);
+            return { data, error: null };
+        } catch (error) {
+            return { data: null, error };
+        }
+    },
+
+    async predictWaste(itemName, category, quantity, purchasePrice, expiryDate) {
+        try {
+            const response = await fetch(`${API_URL}/ai/predict-waste`, {
+                method: 'POST',
+                headers: getHeaders(),
+                body: JSON.stringify({ itemName, category, quantity, purchasePrice, expiryDate }),
+            });
+            const data = await response.json();
+            if (!response.ok) throw new Error(data.message);
+            return { data, error: null };
+        } catch (error) {
+            return { data: null, error };
+        }
+    }
+};
+
