@@ -3,8 +3,11 @@
 - **Title**: Food Waste Platform: A Modular Ecosystem for Surplus Optimization.
 
 - **Members**:
+  
     LEAD : M. Kiran Kumar 
-    MEMBER : K. Muni Kanchi 
+    MEMBER : K. Muni Kanchi
+
+  
 # FoodWaste Platform 🌍🌱
 
 A premium, full-stack food waste management platform for Households and Businesses.
